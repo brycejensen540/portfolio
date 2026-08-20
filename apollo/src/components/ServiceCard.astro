@@ -1,5 +1,5 @@
 ---
-import PlaceholderImage from './PlaceholderImage.astro';
+import MediaImage from './MediaImage.astro';
 import type { Service } from '../data/services';
 
 interface Props {
@@ -15,18 +15,18 @@ const { service, index } = Astro.props;
   href={`/services/${service.slug}/`}
   class="card-lift group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft"
 >
-  <PlaceholderImage topic={service.imageTopic} label={service.name} class="aspect-[16/10]" />
+  <MediaImage topic={service.imageTopic} image={service.image} label={service.name} class="aspect-[16/10]" />
   <div class="flex flex-1 flex-col p-6">
     <div class="mb-3 flex items-center justify-between">
       {index !== undefined && (
-        <span class="font-display text-sm font-bold text-sky">{String(index).padStart(2, '0')}</span>
+        <span class="font-display text-sm font-bold text-brand">{String(index).padStart(2, '0')}</span>
       )}
-      <svg class="h-5 w-5 text-navy transition-transform duration-200 group-hover:translate-x-1 group-hover:text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <svg class="h-5 w-5 text-navy transition-transform duration-200 group-hover:translate-x-1 group-hover:text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
         <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </div>
     <h3 class="font-display text-xl font-bold text-navy">{service.name}</h3>
     <p class="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{service.shortDescription}</p>
-    <span class="mt-4 text-sm font-semibold text-sky group-hover:text-sky-deep">Learn more</span>
+    <span class="mt-4 text-sm font-semibold text-brand group-hover:text-brand-deep">Learn more</span>
   </div>
 </a>

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 import CtaBand from '../components/CtaBand.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
+import MediaImage from '../components/MediaImage.astro';
 
 const title = 'About Us | Apollo Professional — Evanston, IL';
 const description =
@@ -52,7 +52,7 @@ const schema = JSON.stringify({
   <!-- Page header -->
   <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-wider text-sky-bright">About Us</p>
+      <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">About Us</p>
       <h1 class="mt-3 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
         Detail-Focused Cleaning Services in Evanston, IL, and Beyond
       </h1>
@@ -88,7 +88,7 @@ const schema = JSON.stringify({
         </div>
       </div>
       <div class="reveal">
-        <PlaceholderImage topic="team" label="Eric — owner & operator" class="aspect-[4/3]" />
+        <MediaImage topic="team" image="/images/about.webp" label="Eric — owner & operator" class="aspect-[4/3]" />
       </div>
     </div>
   </section>
@@ -114,11 +114,11 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">The Owner</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">The Owner</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">Meet Eric</h2>
       </div>
       <div class="reveal mx-auto mt-12 grid max-w-4xl items-center gap-10 rounded-3xl border border-slate-200 bg-navy-faint p-8 shadow-soft sm:p-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-        <PlaceholderImage topic="team" label="Eric" class="aspect-square" />
+        <MediaImage topic="team" image="/images/about.webp" label="Eric — owner of Apollo Professional" class="aspect-square" />
         <div>
           <h3 class="font-display text-2xl font-bold text-navy">Eric — Owner & Operator</h3>
           <p class="mt-4 leading-relaxed text-slate-600">
@@ -140,7 +140,7 @@ const schema = JSON.stringify({
   <section class="bg-navy-faint py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">What Sets Us Apart</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">What Sets Us Apart</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           Delivering Thorough, Reliable Results Every Time
         </h2>
@@ -160,7 +160,7 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">Who We Serve</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">Who We Serve</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           Residential & Select Commercial
         </h2>

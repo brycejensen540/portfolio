@@ -36,8 +36,10 @@ export type Service = {
   faqs?: { question: string; answer: string }[];
   /** One-liner used on cards and in JSON-LD. */
   shortDescription: string;
-  /** Topic used to pick the placeholder artwork on cards. */
+  /** Topic used to pick the placeholder artwork when no photo exists. */
   imageTopic: ImageTopic;
+  /** Path to the real service photo (from /public/images). */
+  image: string;
   /** Homepage "featured" ordering (only three are featured). */
   featured?: boolean;
 };
@@ -67,6 +69,7 @@ export const services: Service[] = [
     shortDescription:
       'Spotless, streak-free windows for residential and select commercial properties.',
     imageTopic: 'window',
+    image: '/images/window-cleaning.webp',
     featured: true,
   },
   {
@@ -92,6 +95,7 @@ export const services: Service[] = [
     shortDescription:
       'Clear gutters, protected foundation — debris removed and drainage verified.',
     imageTopic: 'gutter',
+    image: '/images/gutter-cleaning.webp',
     featured: true,
   },
   {
@@ -145,6 +149,7 @@ export const services: Service[] = [
     shortDescription:
       'Restore airflow and brightness with a detailed screen cleaning service.',
     imageTopic: 'screen',
+    image: '/images/screen-cleaning-repair.webp',
     featured: true,
   },
   {
@@ -197,6 +202,7 @@ export const services: Service[] = [
     shortDescription:
       'Repair torn or loose screens to keep bugs out and fresh air moving.',
     imageTopic: 'repair',
+    image: '/images/screen-tab.webp',
   },
   {
     slug: 'power-washing',
@@ -221,6 +227,7 @@ export const services: Service[] = [
     shortDescription:
       'Deep-clean driveways, patios, siding, and walkways with safe, effective pressure washing.',
     imageTopic: 'pressure',
+    image: '/images/power-washing.png',
   },
   {
     slug: 'shower-door-cleaning',
@@ -262,6 +269,7 @@ export const services: Service[] = [
     shortDescription:
       'Remove hard water stains and soap scum for clear, polished bathroom glass.',
     imageTopic: 'shower',
+    image: '/images/shower-door-cleaning.webp',
   },
 ];
 

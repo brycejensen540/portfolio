@@ -14,26 +14,26 @@
   }
 
   ::selection {
-    @apply bg-sky-soft text-navy-deep;
+    @apply bg-brand-soft text-navy-deep;
   }
 }
 
 @layer components {
   /* Buttons — used across the site for the main conversions. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
   }
 
   .btn-primary {
-    @apply btn bg-sky text-white hover:bg-sky-deep hover:-translate-y-0.5 hover:shadow-glow;
+    @apply btn bg-brand text-white hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-glow;
   }
 
   .btn-outline-light {
-    @apply btn border border-white/30 text-white hover:border-sky-bright hover:text-sky-bright hover:-translate-y-0.5;
+    @apply btn border border-white/30 text-white hover:border-brand-bright hover:text-brand-bright hover:-translate-y-0.5;
   }
 
   .btn-outline-dark {
-    @apply btn border border-navy/20 text-navy hover:border-sky hover:text-sky-deep hover:-translate-y-0.5;
+    @apply btn border border-navy/20 text-navy hover:border-brand hover:text-brand-deep hover:-translate-y-0.5;
   }
 
   /* Card hover: subtle lift + a soft accent glow. */

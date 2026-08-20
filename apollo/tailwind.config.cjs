@@ -14,12 +14,13 @@ module.exports = {
           soft: '#E8EFFA', // light tint for section backgrounds
           faint: '#F4F8FD', // faintest tint
         },
-        // One sharp accent — a clean sky blue that echoes glass and water.
-        sky: {
-          DEFAULT: '#0EA5E9',
-          bright: '#38BDF8',
-          deep: '#0369A1',
-          soft: '#BAE6FD',
+        // The Apollo brand accent — the orange carried over from the
+        // company's original branding (sun logo + script wordmark).
+        brand: {
+          DEFAULT: '#D03B02', // Apollo orange — primary CTAs and icons
+          bright: '#FDAD05', // amber — text accents on dark navy sections
+          deep: '#A62F02', // darker orange for hovers
+          soft: '#FBE9E0', // light orange tint for selections
         },
       },
       fontFamily: {
@@ -30,7 +31,7 @@ module.exports = {
       boxShadow: {
         // Soft card shadow and a subtle accent glow used on hover.
         soft: '0 4px 24px -6px rgba(11, 36, 71, 0.12)',
-        glow: '0 8px 30px -8px rgba(14, 165, 233, 0.45)',
+        glow: '0 8px 30px -8px rgba(208, 59, 2, 0.45)',
       },
     },
   },

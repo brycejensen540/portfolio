@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 import { areaPages, type AreaPage } from '../../data/areas';
 import CtaBand from '../../components/CtaBand.astro';
-import PlaceholderImage from '../../components/PlaceholderImage.astro';
+import MediaImage from '../../components/MediaImage.astro';
 
 export function getStaticPaths() {
   return areaPages.map((area) => ({
@@ -34,7 +34,7 @@ const schema = JSON.stringify({
   <!-- Page header -->
   <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-wider text-sky-bright">{area.eyebrow}</p>
+      <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">{area.eyebrow}</p>
       <h1 class="mt-3 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
         {area.title}
       </h1>
@@ -55,7 +55,7 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12 grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-        <PlaceholderImage topic="map" label={area.name} class="aspect-[16/10]" />
+        <MediaImage topic="map" image={area.image} label={area.name} class="aspect-[16/10]" />
         <div class="flex flex-col justify-center rounded-2xl border border-slate-200 bg-navy-faint p-8 shadow-soft">
           <h2 class="font-display text-xl font-bold text-navy">Serving {area.name}</h2>
           <p class="mt-3 text-sm leading-relaxed text-slate-600">
@@ -94,7 +94,7 @@ const schema = JSON.stringify({
               <div class="mt-6 space-y-4">
                 {area.tips.map((tip) => (
                   <div class="flex items-start gap-3 rounded-xl border border-slate-200 bg-navy-faint p-5">
-                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                       <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <div>
@@ -116,13 +116,13 @@ const schema = JSON.stringify({
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="font-display text-2xl font-bold text-navy">Other Service Areas</h2>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/areas/" class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-sky hover:text-sky-deep">
+        <a href="/areas/" class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand-deep">
           All Service Areas
         </a>
         {others.map((other) => (
           <a
             href={`/areas/${other.slug}/`}
-            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-sky hover:text-sky-deep"
+            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand-deep"
           >
             {other.name}
           </a>

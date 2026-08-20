@@ -7,7 +7,7 @@ import { reviews } from '../data/reviews';
 import ServiceCard from '../components/ServiceCard.astro';
 import ReviewCard from '../components/ReviewCard.astro';
 import CtaBand from '../components/CtaBand.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
+import MediaImage from '../components/MediaImage.astro';
 
 const title = 'Apollo Professional | Window & Exterior Cleaning in Evanston, IL';
 const description =
@@ -67,12 +67,12 @@ const schema = JSON.stringify({
     ></div>
     <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-28 lg:px-8">
       <div>
-        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky/40 bg-sky/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-sky-bright">
-          <span class="h-1.5 w-1.5 rounded-full bg-sky-bright" aria-hidden="true"></span>
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-bright">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-bright" aria-hidden="true"></span>
           Evanston, IL · Serving the greater Chicago area
         </p>
         <h1 class="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Detail-Focused<br /><span class="text-sky-bright">Every Single Time</span>
+          Detail-Focused<br /><span class="text-brand-bright">Every Single Time</span>
         </h1>
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
           {site.tagline} We provide top-quality cleaning solutions that keep your property looking its best —
@@ -89,7 +89,7 @@ const schema = JSON.stringify({
         </div>
         <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/70">
           <span class="flex items-center gap-2">
-            <span class="flex text-sky-bright" aria-label="Rated 5 out of 5 stars">
+            <span class="flex text-brand-bright" aria-label="Rated 5 out of 5 stars">
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
@@ -103,7 +103,7 @@ const schema = JSON.stringify({
       </div>
 
       <div class="reveal hidden lg:block">
-        <PlaceholderImage topic="sparkle" label="Crystal-clear windows" class="aspect-square max-w-md ml-auto rotate-2 shadow-glow" />
+        <MediaImage topic="sparkle" image="/images/hero.jpg" label="Crystal-clear windows — a sky-lit glass ceiling" class="aspect-[4/3] max-w-md ml-auto shadow-glow" />
       </div>
     </div>
   </section>
@@ -125,14 +125,30 @@ const schema = JSON.stringify({
     </div>
   </section>
 
+  <!-- ============ Trusted badges ============ -->
+  <section class="border-b border-slate-200 bg-white" aria-label="Trusted review platforms">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <p class="text-center text-xs font-semibold uppercase tracking-wider text-slate-400">
+        Trusted &amp; reviewed on
+      </p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <img src="/badges/Angi-175x100-Color.svg" alt="Angi" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
+        <img src="/badges/Home-Advisor-Elite-Service-175x100-Color.svg" alt="Home Advisor — Elite Service" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
+        <img src="/badges/Home-Advisor-Screened-and-Approved-175x100-Color.svg" alt="Home Advisor — Screened and Approved" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
+        <img src="/badges/Home-Advisor-Top-Rated-175x100-Color.svg" alt="Home Advisor — Top Rated" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
+        <img src="/badges/Yelp-New-Logo-175x100-Color.svg" alt="Yelp" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
   <!-- ============ About teaser ============ -->
   <section class="bg-navy-faint py-20 lg:py-24">
     <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
       <div class="reveal">
-        <PlaceholderImage topic="window" label="Spotless windows, every time" class="aspect-[4/3]" />
+        <MediaImage topic="window" image="/images/window-large.webp" label="Spotless windows, every time" class="aspect-[4/3]" />
       </div>
       <div class="reveal">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">Introducing Our Detail-Driven Cleaning Team</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">Introducing Our Detail-Driven Cleaning Team</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           Trusted Cleaning Services in Evanston, IL, and Surrounding Areas
         </h2>
@@ -160,7 +176,7 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">What We Do</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">What We Do</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           Professional Cleaning Services for Every Surface
         </h2>
@@ -182,7 +198,7 @@ const schema = JSON.stringify({
   <section class="bg-navy-faint py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">Featured Services</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">Featured Services</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           The Services Our Customers Rely On Most
         </h2>
@@ -191,7 +207,7 @@ const schema = JSON.stringify({
         {featured.map((service, i) => (
           <div class="reveal grid items-center gap-10 lg:grid-cols-2">
             <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
-              <PlaceholderImage topic={service.imageTopic} label={service.name} class="aspect-[4/3]" />
+              <MediaImage topic={service.imageTopic} image={service.image} label={service.name} class="aspect-[4/3]" />
             </div>
             <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
               <h3 class="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">{service.name}</h3>
@@ -199,14 +215,14 @@ const schema = JSON.stringify({
               <ul class="mt-6 space-y-3">
                 {service.benefits.slice(0, 4).map((benefit) => (
                   <li class="flex items-start gap-3 text-sm text-slate-700">
-                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                       <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     {benefit}
                   </li>
                 ))}
               </ul>
-              <a href={`/services/${service.slug}/`} class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-sky transition-colors hover:text-sky-deep">
+              <a href={`/services/${service.slug}/`} class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-deep">
                 Read more
                 <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -223,7 +239,7 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">Where We Work</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">Where We Work</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           Proudly Serving the Greater Chicago Area
         </h2>
@@ -239,7 +255,7 @@ const schema = JSON.stringify({
                 href={`/areas/${area.slug}/`}
                 class="card-lift flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-navy shadow-soft"
               >
-                <svg class="h-4 w-4 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <svg class="h-4 w-4 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
                   <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
                 </svg>
@@ -258,7 +274,7 @@ const schema = JSON.stringify({
         ))}
       </ul>
       <div class="mt-10 text-center">
-        <a href="/areas/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky transition-colors hover:text-sky-deep">
+        <a href="/areas/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-deep">
           See all service areas
           <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -272,7 +288,7 @@ const schema = JSON.stringify({
   <section class="bg-navy-faint py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wider text-sky">Testimonials</p>
+        <p class="text-sm font-bold uppercase tracking-wider text-brand">Testimonials</p>
         <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
           See Why Our Cleaning Services Shine
         </h2>

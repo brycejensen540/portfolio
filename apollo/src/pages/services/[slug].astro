@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site } from '../../data/site';
 import { services, type Service } from '../../data/services';
 import CtaBand from '../../components/CtaBand.astro';
-import PlaceholderImage from '../../components/PlaceholderImage.astro';
+import MediaImage from '../../components/MediaImage.astro';
 
 export function getStaticPaths() {
   return services.map((service) => ({
@@ -39,7 +39,7 @@ const schema = JSON.stringify({
   <!-- Page header -->
   <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-wider text-sky-bright">{service.eyebrow}</p>
+      <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">{service.eyebrow}</p>
       <h1 class="mt-3 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
         {service.title}
       </h1>
@@ -60,7 +60,7 @@ const schema = JSON.stringify({
   <section class="bg-white py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mb-12">
-        <PlaceholderImage topic={service.imageTopic} label={service.name} class="aspect-[21/9]" />
+        <MediaImage topic={service.imageTopic} image={service.image} label={service.name} class="aspect-[21/9]" />
       </div>
 
       <div class="grid gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
@@ -78,7 +78,7 @@ const schema = JSON.stringify({
                   <details class="group rounded-xl border border-slate-200 bg-navy-faint">
                     <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-navy [&::-webkit-details-marker]:hidden">
                       {faq.question}
-                      <svg class="h-4 w-4 shrink-0 text-sky transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <svg class="h-4 w-4 shrink-0 text-brand transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </summary>
@@ -96,7 +96,7 @@ const schema = JSON.stringify({
           <ul class="mt-5 space-y-4">
             {service.benefits.map((benefit) => (
               <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-700">
-                <svg class="mt-0.5 h-5 w-5 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 {benefit}
@@ -123,7 +123,7 @@ const schema = JSON.stringify({
         {others.map((other) => (
           <a
             href={`/services/${other.slug}/`}
-            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-sky hover:text-sky-deep"
+            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand-deep"
           >
             {other.name}
           </a>

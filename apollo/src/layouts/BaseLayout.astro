@@ -44,8 +44,8 @@ const ogImage = new URL('/og-image.svg', Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicon (the company's sun mark) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +65,7 @@ const ogImage = new URL('/og-image.svg', Astro.site);
   <body class="flex min-h-screen flex-col">
     <a
       href="#main"
-      class="sr-only z-[60] bg-sky px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-full"
+      class="sr-only z-[60] bg-brand px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-full"
     >
       Skip to content
     </a>
