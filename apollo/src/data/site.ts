@@ -5,7 +5,7 @@ export const site = {
   name: 'Apollo Professional',
   tagline: 'Detail-focused. Client-driven. Actually clean.',
   description:
-    'Detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning in Chicago, IL and the surrounding suburbs.',
+    'We don’t just clean windows so they look clean — we clean them so they are clean. Detail-focused window cleaning, gutters, screens, and pressure washing in Chicago, IL and the surrounding suburbs.',
 
   // Primary contact — this is the number every page points to.
   phone: '(773) 600-1308',
