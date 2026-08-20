@@ -20,7 +20,7 @@ local-SEO metadata baked into every page.
 | ------------------------- | ---------------------------------------------- |
 | `/`                       | Home — hero, trust bar, services, areas, reviews |
 | `/about/`                 | About the company + owner bio (Eric)           |
-| `/services/<slug>/`       | 6 service pages (window, gutter, screens ×2, power washing, shower doors) |
+| `/services/<slug>/`       | 5 service pages (window, gutter, screens ×2, power washing) |
 | `/areas/`                 | Service areas overview (16 communities)        |
 | `/areas/<slug>/`          | Chicago, Oak Park, La Grange, Hinsdale |
 | `/contact/`               | Contact form + details                          |

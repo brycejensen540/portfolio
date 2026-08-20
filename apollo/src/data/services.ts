@@ -1,4 +1,4 @@
-// All six services offered by Apollo Professional.
+// All five services offered by Apollo Professional.
 // Each entry powers a generated page at /services/<slug> and its
 // card in the services grid. Content mirrors the company's current
 // website (with outdated contact details normalized to the primary
@@ -11,7 +11,6 @@ export type ImageTopic =
   | 'screen'
   | 'repair'
   | 'pressure'
-  | 'shower'
   | 'sparkle'
   | 'team'
   | 'map';
@@ -228,48 +227,6 @@ export const services: Service[] = [
       'Deep-clean driveways, patios, siding, and walkways with safe, effective pressure washing.',
     imageTopic: 'pressure',
     image: '/images/power-washing.png',
-  },
-  {
-    slug: 'shower-door-cleaning',
-    name: 'Shower Door Cleaning',
-    shortName: 'Shower Door Cleaning',
-    eyebrow: 'Our Services',
-    title: 'Restore Clarity to Your Shower Glass',
-    metaDescription:
-      'Shower door cleaning service in Chicago, IL. Remove hard water stains and soap scum for clear, sparkling bathroom glass. Call Apollo Professional at (773) 600-1308.',
-    intro:
-      'Hard water stains, soap scum, and mineral deposits build up quickly on shower glass, turning a bright bathroom dull and hazy. Ordinary household cleaners rarely touch the buildup that accumulates on panels, frames, and tracks. Our shower door cleaning service removes the stains and residue that plain cleaning leaves behind — bringing clarity and shine back to your bathroom’s glass.',
-    body: [
-      'We carefully clean every glass panel, then polish the frames and tracks so the whole door looks fresh, not just the center of the pane. The result is clear, streak-free glass that makes your bathroom feel brighter and cleaner every day. If it is glass, we make it shine.',
-      'Shower door cleaning pairs perfectly with our window cleaning and other services — many customers bundle a full interior refresh in a single visit. Whether it is a one-time deep clean or regular maintenance, we bring the same detail-focused approach to every surface.',
-    ],
-    benefits: [
-      'Removes hard water stains and soap scum',
-      'Restores crystal-clear, streak-free glass',
-      'Polishes frames and tracks',
-      'Leaves your bathroom bright and fresh',
-    ],
-    faqs: [
-      {
-        question: 'How often should shower doors be cleaned?',
-        answer:
-          'Most homeowners schedule a professional clean once or twice a year, with weekly wipes in between to slow buildup.',
-      },
-      {
-        question: 'Is the cleaning safe for all glass types?',
-        answer:
-          'Yes. We use non-abrasive methods and solutions that are safe for treated and framed glass doors.',
-      },
-      {
-        question: 'Can shower door cleaning be combined with other services?',
-        answer:
-          'Absolutely. Many customers bundle it with window cleaning or screen cleaning for a single, efficient visit.',
-      },
-    ],
-    shortDescription:
-      'Remove hard water stains and soap scum for clear, polished bathroom glass.',
-    imageTopic: 'shower',
-    image: '/images/shower-door-cleaning.webp',
   },
 ];
 

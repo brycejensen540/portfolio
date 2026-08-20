@@ -100,11 +100,6 @@ export const areaPages: AreaPage[] = [
         description:
           'We remove buildup from driveways, patios, and siding, reviving your outdoor spaces and extending the life of exterior surfaces.',
       },
-      {
-        title: 'Shower Door Cleaning',
-        description:
-          'We remove hard water stains and soap residue, bringing clarity and shine back to your bathroom’s glass features.',
-      },
     ],
     tips: [
       {
@@ -159,11 +154,6 @@ export const areaPages: AreaPage[] = [
         description:
           'We wash away buildup from patios, driveways, and siding, restoring your property’s fresh look after a long Midwest winter.',
       },
-      {
-        title: 'Shower Door Cleaning',
-        description:
-          'We polish away soap scum and mineral deposits, leaving your bathroom glass clear and sparkling.',
-      },
     ],
     tips: [
       {
@@ -177,10 +167,6 @@ export const areaPages: AreaPage[] = [
       {
         title: 'Brush patio surfaces regularly',
         description: 'Stops mildew from forming in shaded areas.',
-      },
-      {
-        title: 'Clean shower doors weekly',
-        description: 'Reduces soap buildup and makes deep cleaning faster later.',
       },
     ],
   },
@@ -198,7 +184,7 @@ export const areaPages: AreaPage[] = [
       'Our service goes beyond a quick wipe-down. We remove mineral deposits, pollen residue, and oxidation from frames and tracks, leaving every pane streak-free. Whether you need a one-time deep clean before hosting guests or a seasonal maintenance schedule to keep your home looking its best, we deliver results you can see from the curb and enjoy from inside.',
       'We understand that your time is valuable and your home deserves careful attention. We clean both sides of every window, including frames, sills, and tracks — many Hinsdale homes have large picture windows and multi-pane designs that collect dust in every corner. We reach high second-story windows safely and efficiently, and we use specialized solutions to dissolve hard-water mineral deposits without scratching the glass or damaging trim.',
       'Hinsdale experiences all four seasons, and each brings unique challenges for your windows. Spring pollen coats glass and screens in a yellow-green film; summer storms leave water spots; fall brings leaf debris that clogs gutters and stains sills; winter road salt and freeze-thaw cycles create streaks that harden if not cleaned promptly. We recommend scheduling window cleaning at least twice a year — once in late spring after pollen season and again in early fall before winter weather sets in. Regular cleaning not only keeps your home beautiful but also extends the life of your windows by preventing etching and frame corrosion.',
-      'While window washing is our specialty, we understand that a clean home exterior requires more. That is why we also offer gutter cleaning to prevent overflow damage, screen cleaning and repair, power washing to refresh driveways and patios, and cleaning for shower doors, mirrors, and skylights. Bundling services saves you time and ensures consistent quality across every part of your property.',
+      'While window washing is our specialty, we understand that a clean home exterior requires more. That is why we also offer gutter cleaning to prevent overflow damage, screen cleaning and repair, power washing to refresh driveways and patios, and cleaning for mirrors and skylights. Bundling services saves you time and ensures consistent quality across every part of your property.',
     ],
   },
 ];
