@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dnstest"
+description = "Measure DNS resolver response times from the terminal."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dnspython>=2.3.0",
+    "colorama>=0.4.6",
+]
+
+[project.scripts]
+dnstest = "dnstest:cli"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools]
+# Single-module package: the CLI lives in dnstest/dnstest.py.
+py-modules = ["dnstest"]
+
+[tool.setuptools.dynamic]
+# Keep the version in one place (dnstest.py).
+version = { attr = "dnstest.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dnstest — measure DNS response times from your terminal</title>
+    <meta
+      name="description"
+      content="dnstest is a tiny Python CLI that times DNS resolver responses so you can see who's fastest."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="canonical" href="https://dnstest.example.com/" />
+
+    <!-- JetBrains Mono for a clean, geometric terminal feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen">
+    <!-- ============================ Header ============================ -->
+    <header class="sticky top-0 z-40 border-b border-line bg-carbon/90 backdrop-blur">
+      <div class="mx-auto flex h-16 max-w-4xl items-center justify-between px-5">
+        <a href="#top" class="flex items-center gap-2 text-sm font-bold tracking-tight text-text">
+          <span class="accent">$</span> dnstest<span class="accent" aria-hidden="true">_</span>
+        </a>
+
+        <nav class="hidden items-center gap-6 text-xs text-muted sm:flex" aria-label="Main">
+          <a href="#features" class="transition-colors hover:text-accent">features</a>
+          <a href="#install" class="transition-colors hover:text-accent">install</a>
+          <a href="#usage" class="transition-colors hover:text-accent">usage</a>
+          <a href="#resolvers" class="transition-colors hover:text-accent">resolvers</a>
+          <a
+            href="https://github.com/brycejensen540/DNStest"
+            class="transition-colors hover:text-accent"
+            rel="noopener"
+            >github ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============================= Hero ============================= -->
+      <section class="relative overflow-hidden">
+        <div class="hero-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+        <div class="relative mx-auto grid max-w-4xl gap-12 px-5 pb-20 pt-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pt-24">
+          <div>
+            <p class="eyebrow fade-up">dns latency, <span class="dash">measured</span></p>
+
+            <h1
+              class="fade-up fade-up-delay-1 mt-4 text-4xl font-bold leading-tight tracking-tight text-text sm:text-5xl"
+            >
+              How fast is your <span class="accent">DNS</span>, really?
+            </h1>
+
+            <p class="fade-up fade-up-delay-2 mt-5 max-w-md text-sm leading-relaxed text-muted">
+              dnstest queries the big public resolvers straight from your
+              terminal and tells you exactly who answers first — one real
+              round-trip at a time. No config files, no daemons.
+            </p>
+
+            <div class="fade-up fade-up-delay-2 mt-8 flex flex-wrap gap-3">
+              <a
+                href="#install"
+                class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-bold text-black transition hover:brightness-110"
+              >
+                $ install dnstest
+              </a>
+              <a
+                href="https://github.com/brycejensen540/DNStest"
+                rel="noopener"
+                class="inline-flex items-center gap-2 rounded-md border border-line px-5 py-2.5 text-sm font-medium text-text transition hover:border-accent hover:text-accent"
+              >
+                view source
+              </a>
+            </div>
+          </div>
+
+          <!-- Terminal mockup -->
+          <div class="terminal fade-up fade-up-delay-1" aria-hidden="true">
+            <div class="terminal-titlebar">
+              <span class="terminal-dots">
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+              </span>
+              <span>dnstest — example.com</span>
+              <span class="text-[10px] text-muted">tty0</span>
+            </div>
+            <pre class="overflow-x-auto p-5 text-xs leading-relaxed"><code><span class="text-muted">$ </span><span class="text-text">dnstest example.com</span>
+
+<span class="text-muted">Querying example.com (A), 4 resolver(s)</span>
+
+<span class="text-muted">resolver</span>               <span class="text-muted">status</span>  <span class="text-muted">avg</span>
+Quad9 <span class="text-muted">9.9.9.9</span>            <span class="text-green-500">OK</span>      <span class="text-text">14.5 ms</span>
+OpenDNS <span class="text-muted">208.67.222.222</span>   <span class="text-green-500">OK</span>      <span class="text-text">16.6 ms</span>
+Cloudflare <span class="text-muted">1.1.1.1</span>     <span class="text-green-500">OK</span>      <span class="text-text">21.4 ms</span>
+Google <span class="text-muted">8.8.8.8</span>          <span class="text-green-500">OK</span>      <span class="text-text">45.9 ms</span>
+
+<span class="text-muted">summary</span>  <span class="text-text">avg 24.6 ms</span> · <span class="text-text">min 14.5 ms</span> · <span class="text-text">max 45.9 ms</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================== Features =========================== -->
+      <section id="features" class="border-t border-line">
+        <div class="mx-auto max-w-4xl px-5 py-16">
+          <p class="eyebrow">capabilities — <span class="dash">v1.0</span></p>
+
+          <div class="mt-8 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
+            <div class="bg-carbon p-6">
+              <p class="text-xs font-bold text-accent">01 · latency</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted">
+                Each resolver gets one real UDP round-trip, timed to the
+                millisecond. No caches, no retry logic polluting the numbers.
+              </p>
+            </div>
+            <div class="bg-carbon p-6">
+              <p class="text-xs font-bold text-accent">02 · flags</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted">
+                <code class="text-text">--resolvers</code>,
+                <code class="text-text">--type</code>,
+                <code class="text-text">--count</code>,
+                <code class="text-text">--json</code>,
+                <code class="text-text">--quiet</code> — everything a script needs.
+              </p>
+            </div>
+            <div class="bg-carbon p-6">
+              <p class="text-xs font-bold text-accent">03 · exit codes</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted">
+                <code class="text-text">0</code> answered · <code class="text-text">1</code> nothing
+                answered · <code class="text-text">2</code> usage error. Grep-friendly, cron-friendly.
+              </p>
+            </div>
+            <div class="bg-carbon p-6">
+              <p class="text-xs font-bold text-accent">04 · zero config</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted">
+                A single Python file, two dependencies, no daemon and no
+                database. Uninstallable by deletion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ Install =========================== -->
+      <section id="install" class="border-t border-line">
+        <div class="mx-auto max-w-4xl px-5 py-16">
+          <p class="eyebrow">installation — <span class="dash">60 seconds</span></p>
+
+          <div class="terminal mt-8">
+            <div class="terminal-titlebar">
+              <span class="terminal-dots">
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+              </span>
+              <span>install.sh</span>
+              <span class="text-[10px] text-muted">sh</span>
+            </div>
+            <pre class="overflow-x-auto p-5 text-xs leading-relaxed"><code><span class="text-muted"># from pypi (once published)</span>
+<span class="text-muted">$ </span>pip install dnstest
+
+<span class="text-muted"># or straight from source</span>
+<span class="text-muted">$ </span>git clone https://github.com/brycejensen540/DNStest
+<span class="text-muted">$ </span>cd DNStest
+<span class="text-muted">$ </span>python -m venv .venv <span class="text-muted">&amp;&amp;</span> source .venv/bin/activate
+<span class="text-muted">$ </span>pip install .</code></pre>
+          </div>
+
+          <p class="mt-4 text-xs text-muted">
+            Requires Python 3.10 or newer. The full list of flags lives in
+            the project README.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================ Usage ============================= -->
+      <section id="usage" class="border-t border-line">
+        <div class="mx-auto max-w-4xl px-5 py-16">
+          <p class="eyebrow">usage — <span class="dash">copy &amp; paste</span></p>
+
+          <div class="terminal mt-8">
+            <div class="terminal-titlebar">
+              <span class="terminal-dots">
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+                <span class="terminal-dot bg-line"></span>
+              </span>
+              <span>examples.sh</span>
+              <span class="text-[10px] text-muted">sh</span>
+            </div>
+            <pre class="overflow-x-auto p-5 text-xs leading-relaxed"><code><span class="text-muted">$ </span>dnstest example.com
+<span class="text-muted">$ </span>dnstest example.com --type AAAA
+<span class="text-muted">$ </span>dnstest api.example.com --resolvers 9.9.9.9,149.112.112.112
+<span class="text-muted">$ </span>dnstest example.com --count 5 --json <span class="text-muted">|</span> jq '.summary'
+<span class="text-muted">$ </span>dnstest --list-resolvers</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================== Resolvers ========================== -->
+      <section id="resolvers" class="border-t border-line">
+        <div class="mx-auto max-w-4xl px-5 py-16">
+          <p class="eyebrow">built-in resolvers — <span class="dash">shipped by default</span></p>
+
+          <div class="mt-8 overflow-x-auto rounded-lg border border-line">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-panel text-xs uppercase tracking-wider text-muted">
+                <tr class="border-b border-line">
+                  <th class="px-5 py-3 font-medium">resolver</th>
+                  <th class="px-5 py-3 font-medium">address</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-line text-text">
+                <tr class="transition-colors hover:bg-panel/60">
+                  <td class="px-5 py-3">Cloudflare</td>
+                  <td class="px-5 py-3 text-muted">1.1.1.1</td>
+                </tr>
+                <tr class="transition-colors hover:bg-panel/60">
+                  <td class="px-5 py-3">Google</td>
+                  <td class="px-5 py-3 text-muted">8.8.8.8</td>
+                </tr>
+                <tr class="transition-colors hover:bg-panel/60">
+                  <td class="px-5 py-3">Quad9</td>
+                  <td class="px-5 py-3 text-muted">9.9.9.9</td>
+                </tr>
+                <tr class="transition-colors hover:bg-panel/60">
+                  <td class="px-5 py-3">OpenDNS</td>
+                  <td class="px-5 py-3 text-muted">208.67.222.222</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="mt-4 text-xs text-muted">
+            Missing your favorite? <code class="text-text">--resolvers</code> accepts
+            any list, comma-separated or repeated.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================ Footer ============================= -->
+    <footer class="border-t border-line">
+      <div class="mx-auto flex max-w-4xl flex-col gap-4 px-5 py-10 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          <span class="accent">$</span> dnstest — response times for people in a hurry
+        </p>
+        <nav class="flex items-center gap-5" aria-label="Footer">
+          <a href="https://github.com/brycejensen540/DNStest" class="transition-colors hover:text-accent" rel="noopener">
+            source
+          </a>
+          <a href="https://github.com/brycejensen540/DNStest" class="transition-colors hover:text-accent" rel="noopener">
+            issues
+          </a>
+          <span>© 2026 Bryce Jensen</span>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

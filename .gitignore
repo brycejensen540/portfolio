@@ -19,8 +19,15 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Local portable Node runtime (only used on machines without Node installed)
+# Local portable Node/Python runtimes (only used on machines without them)
 .tooling/
+
+# Python (dnstest CLI)
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
 
 # Freebuff app state (check-in ID, session files)
 .freebuff/

@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-carbon text-text font-mono antialiased;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 255, 0.25);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #00e5ff;
+    outline-offset: 2px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Components
+   ------------------------------------------------------------------ */
+
+/* Terminal-style window used in the hero mockup and code blocks */
+.terminal {
+  @apply rounded-lg border border-line bg-panel;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 24px 60px -24px rgba(0, 229, 255, 0.12);
+}
+
+.terminal-titlebar {
+  @apply flex items-center justify-between border-b border-line px-4 py-2.5 text-xs text-muted;
+}
+
+.terminal-dots {
+  @apply flex gap-1.5;
+}
+
+.terminal-dot {
+  @apply h-2.5 w-2.5 rounded-full;
+}
+
+/* The single accent: electric cyan, used in small doses */
+.accent {
+  color: #00e5ff;
+}
+
+/* Section label, terminal-flavored */
+.eyebrow {
+  @apply text-xs uppercase tracking-[0.2em] text-muted;
+}
+
+.eyebrow .dash {
+  color: #00e5ff;
+}
+
+/* ------------------------------------------------------------------
+   Subtle effects (all respect prefers-reduced-motion)
+   ------------------------------------------------------------------ */
+
+/* One soft glow behind the hero — the only gradient on the page */
+.hero-glow {
+  background: radial-gradient(
+    ellipse 55% 55% at 50% 0%,
+    rgba(0, 229, 255, 0.09),
+    rgba(0, 0, 0, 0) 68%
+  );
+}
+
+/* Restrained fade-up on load, once, for the hero block */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.fade-up-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.fade-up-delay-2 {
+  animation-delay: 0.16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+}

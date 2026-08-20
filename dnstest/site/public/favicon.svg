@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Terminal prompt mark: typed line + block cursor, electric cyan on black -->
+  <rect width="64" height="64" rx="14" fill="#000000"/>
+  <rect x="17" y="17" width="30" height="9" rx="2" fill="#00E5FF"/>
+  <rect x="17" y="33" width="20" height="9" rx="2" fill="#21262D"/>
+  <rect x="42" y="33" width="9" height="9" rx="2" fill="#00E5FF"/>
+</svg>
