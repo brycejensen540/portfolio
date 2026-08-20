@@ -3,7 +3,7 @@
 
 export const site = {
   name: 'Apollo Professional',
-  tagline: 'Giving you the rare luxury of seeing the world again.',
+  tagline: 'Detail-focused. Client-driven. Actually clean.',
   description:
     'Detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning in Chicago, IL and the surrounding suburbs.',
 
