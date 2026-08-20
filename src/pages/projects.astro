@@ -1,0 +1,41 @@
+---
+// Projects page: header, responsive card grid, "more coming soon" note.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+---
+
+<BaseLayout
+  title="Projects"
+  description="A growing archive of tools, experiments, and things that shipped."
+>
+  <!-- ========================= Page header ========================= -->
+  <section class="mx-auto max-w-5xl px-4 pb-14 pt-20 sm:px-6 lg:pt-24">
+    <p data-reveal class="eyebrow">Portfolio</p>
+
+    <h1 data-reveal class="font-display text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">
+      Projects
+    </h1>
+
+    <p data-reveal class="mt-5 max-w-2xl text-lg leading-relaxed text-ink/70">
+      A growing archive of tools, experiments, and things that have actually
+      shipped. Everything here is placeholder copy until I migrate real work in.
+    </p>
+  </section>
+
+  <!-- ========================= Card grid ========================== -->
+  <section class="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
+    <div data-reveal class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
+    </div>
+
+    <p data-reveal class="mt-14 text-center text-sm text-ink/60">
+      More coming soon — this list grows as I finish and polish things.
+    </p>
+  </section>
+</BaseLayout>

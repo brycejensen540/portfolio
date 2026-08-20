@@ -1,0 +1,122 @@
+---
+// About page: header + opening statement, bio, skills, "currently…" note,
+// closing CTA to Projects.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skillGroups = [
+  {
+    name: 'Languages',
+    skills: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+  },
+  {
+    name: 'Frameworks & libraries',
+    skills: ['React', 'Astro', 'Node.js', 'Tailwind CSS'],
+  },
+  {
+    name: 'Tools & workflow',
+    skills: ['Git', 'Docker', 'Figma', 'Linux', 'CI/CD'],
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="About Jordan Avery — how I work, what I build with, and where I'm headed."
+>
+  <!-- ========================= Page header ========================= -->
+  <section class="mx-auto max-w-3xl px-4 pb-16 pt-20 sm:px-6 lg:pt-24">
+    <p data-reveal class="eyebrow">About me</p>
+
+    <h1 data-reveal class="font-display text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">
+      Design-minded developer,<br /> type-safe <span class="text-orange">by default</span>.
+    </h1>
+
+    <p data-reveal class="mt-6 text-lg leading-relaxed text-ink/70">
+      Hi, I'm Jordan — a developer who likes software that stays out of the
+      way. For the last few years I've been shipping small, focused tools:
+      CLI utilities, dashboards, and the occasional design system.
+    </p>
+  </section>
+
+  <!-- ============================ Bio ============================= -->
+  <section class="mx-auto max-w-3xl px-4 pb-20 sm:px-6">
+    <div data-reveal class="space-y-5 text-base leading-relaxed text-ink/75">
+      <p>
+        I care about the unglamorous parts of building software: naming,
+        types, and composable structure. Most of my effort goes into the ten
+        percent of code that isn't the clever bit — because that ten percent
+        is what makes the rest reliable.
+      </p>
+      <p>
+        My default stack is TypeScript from front to back, with Astro or Node
+        on the server side and vanilla-friendly front ends that stay fast. I
+        prototype in plain HTML and CSS before reaching for anything heavier,
+        then ship early, in small pieces, with tests on the things that
+        matter.
+      </p>
+      <p>
+        When I'm not writing code I'm usually sketching interface ideas,
+        reading about local-first software, or walking too slowly with a
+        podcast playing.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================= Skills / Tools ======================= -->
+  <section class="border-y border-ink/10">
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <p data-reveal class="eyebrow">Toolbox</p>
+      <h2 data-reveal class="font-display text-3xl font-bold tracking-tight text-ink">
+        Skills &amp; tools
+      </h2>
+
+      <div data-reveal class="mt-8 space-y-8">
+        {
+          skillGroups.map((group) => (
+            <div>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-ink/50">
+                {group.name}
+              </h3>
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {
+                  group.skills.map((skill) => (
+                    <li>
+                      <span class="tag">{skill}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= Currently note ======================== -->
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <blockquote data-reveal class="rounded-r-xl border-l-4 border-orange/60 bg-orange/5 px-6 py-5">
+      <p class="italic text-ink/80">
+        <span class="font-semibold not-italic text-orange">Currently —</span>
+        exploring local-first apps and quiet desktop tooling, usually with a
+        coffee nearby.
+      </p>
+    </blockquote>
+  </section>
+
+  <!-- ========================= Closing CTA ======================== -->
+  <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
+    <div data-reveal class="rounded-3xl border border-ink/10 px-6 py-12 text-center sm:px-12">
+      <h2 class="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+        Curious what I've built?
+      </h2>
+      <p class="mx-auto mt-3 max-w-md text-ink/70">
+        The project archive is small but growing — take a look around.
+      </p>
+      <div class="mt-8">
+        <a class="btn btn--primary" href="/projects">View Projects</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

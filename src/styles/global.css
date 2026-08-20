@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Base styles
+   ------------------------------------------------------------------ */
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    /* Soft teal highlight */
+    background: rgba(94, 234, 212, 0.3);
+  }
+
+  :focus-visible {
+    outline: 2px solid #0f766e; /* teal */
+    outline-offset: 2px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reusable component classes (defined with @apply so the markup
+   stays short and readable)
+   ------------------------------------------------------------------ */
+
+@layer components {
+  /* Buttons — primary (ink, teal glow) and secondary (outlined, orange glow) */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200 ease-out;
+  }
+
+  .btn--primary {
+    @apply bg-ink text-paper;
+  }
+
+  .btn--primary:hover {
+    @apply -translate-y-0.5;
+    box-shadow:
+      0 12px 28px -12px rgba(20, 184, 166, 0.5),
+      0 4px 12px rgba(20, 184, 166, 0.2);
+  }
+
+  .btn--secondary {
+    @apply border border-ink/20 bg-transparent text-ink;
+  }
+
+  .btn--secondary:hover {
+    @apply -translate-y-0.5 border-orange/40;
+    box-shadow:
+      0 10px 24px -12px rgba(249, 115, 22, 0.5),
+      0 4px 12px rgba(249, 115, 22, 0.18);
+  }
+
+  /* Small pill used for tech tags */
+  .tag {
+    @apply inline-flex items-center rounded-full border border-ink/15 px-3 py-1 text-xs font-medium text-ink/70;
+  }
+
+  /* Inline link with an arrow — used for "See all projects", card links… */
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-teal underline-offset-4 transition-colors duration-200 hover:text-orange hover:underline;
+  }
+
+  /* Uppercase section label */
+  .eyebrow {
+    @apply mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-teal;
+  }
+
+  /* Project card — subtle lift and a soft teal/orange glow on hover */
+  .card {
+    @apply relative flex flex-col overflow-hidden rounded-2xl border border-ink/10 bg-paper transition-all duration-200 ease-out;
+  }
+
+  .card:hover {
+    @apply -translate-y-1 border-teal/40;
+    box-shadow:
+      0 16px 32px -16px rgba(20, 184, 166, 0.35),
+      0 6px 18px -8px rgba(249, 115, 22, 0.2);
+  }
+
+  /* Faint geometric grid — a subtle vaporwave nod, heavily faded */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(28, 26, 23, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(28, 26, 23, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 35%, transparent 78%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 35%, transparent 78%);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Header navigation
+   ------------------------------------------------------------------ */
+
+.nav-link {
+  @apply relative block rounded-lg px-3 py-2 text-sm font-medium text-ink/60 transition-colors duration-200 hover:bg-ink/5 hover:text-ink;
+}
+
+/* Active page: solid text + short orange underline */
+.nav-link--active {
+  @apply text-ink;
+}
+
+.nav-link--active::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 9999px;
+  background: #f97316; /* orange */
+}
+
+/* Footer social links */
+.footer-link {
+  @apply flex h-10 w-10 items-center justify-center rounded-lg border border-ink/15 text-ink/70 transition-all duration-200 hover:-translate-y-0.5 hover:text-teal hover:border-teal/40;
+}
+
+.footer-link:hover {
+  box-shadow: 0 8px 18px -10px rgba(20, 184, 166, 0.6);
+}
+
+/* Hamburger button: show the "close" icon while the menu is open */
+.menu-icon-close {
+  display: none;
+}
+
+#menu-toggle[aria-expanded='true'] .menu-icon-close {
+  display: block;
+}
+
+#menu-toggle[aria-expanded='true'] .menu-icon-open {
+  display: none;
+}
+
+/* ------------------------------------------------------------------
+   Reveal-on-scroll (only applies when JS is enabled — fade-in.ts
+   adds .is-visible, and an inline script in BaseLayout adds the
+   `js` class to <html> so content is never hidden without JS)
+   ------------------------------------------------------------------ */
+
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------
+   Accessibility: respect reduced-motion preferences
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

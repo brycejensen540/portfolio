@@ -1,0 +1,83 @@
+---
+// Site header: logo + main navigation.
+// The mobile version collapses the nav into a hamburger-controlled dropdown
+// (the toggle logic lives in ../scripts/menu.ts).
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+];
+
+// Highlight the active page. "/" has to be an exact match so it doesn't
+// light up on every other route too.
+const currentPath = Astro.url.pathname;
+
+function isActive(link: { href: string }): boolean {
+  if (link.href === '/') return currentPath === '/';
+  return currentPath.startsWith(link.href);
+}
+---
+
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
+    <!-- Logo -->
+    <a href="/" class="flex shrink-0 items-center gap-2 font-display text-lg font-bold tracking-tight text-ink">
+      <svg viewBox="0 0 64 64" class="h-7 w-7" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1C1A17" />
+        <path d="M17 44h30" stroke="#F97316" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M21 44a11 11 0 0 1 22 0Z" fill="#14B8A6" />
+      </svg>
+      <span>Jordan Avery</span>
+    </a>
+
+    <!-- Main nav: horizontal on desktop, dropdown panel on mobile -->
+    <nav
+      id="site-nav"
+      aria-label="Main"
+      class="absolute inset-x-0 top-full z-30 hidden flex-col gap-1 border-b border-ink/10 bg-paper px-4 pb-4 pt-2 sm:px-6 lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-2 lg:border-b-0 lg:bg-transparent lg:px-0 lg:pb-0 lg:pt-0"
+    >
+      <ul class="flex flex-col gap-1 lg:flex-row lg:items-center lg:gap-2">
+        {
+          links.map((link) => {
+            const active = isActive(link);
+            return (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  class:list={['nav-link', active && 'nav-link--active']}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <!-- Hamburger (mobile only) -->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-ink/15 text-ink transition-colors hover:border-teal/40 hover:text-teal lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
+      <!-- open (hamburger) icon -->
+      <svg class="menu-icon-open h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 5.5h14M3 10h14M3 14.5h14" />
+      </svg>
+      <!-- close (X) icon -->
+      <svg class="menu-icon-close h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="m5 5 10 10M15 5 5 15" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script>
+  import '../scripts/menu';
+</script>

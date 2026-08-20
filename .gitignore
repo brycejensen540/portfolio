@@ -1,0 +1,26 @@
+# Build output
+dist/
+
+# Generated types (astro check, astro dev)
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.production
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local portable Node runtime (only used on machines without Node installed)
+.tooling/
+
+# Freebuff app state (check-in ID, session files)
+.freebuff/

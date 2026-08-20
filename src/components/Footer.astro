@@ -1,0 +1,57 @@
+---
+// Minimal footer: name/tagline, placeholder social links, copyright.
+// The social hrefs are "#" placeholders — wire them up later.
+
+const socials = [
+  { label: 'GitHub', href: '#', icon: 'github' },
+  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  { label: 'Email', href: '#', icon: 'email' },
+  { label: 'X', href: '#', icon: 'x' },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-ink/10">
+  <div class="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div>
+      <p class="font-display text-lg font-bold tracking-tight text-ink">Jordan Avery</p>
+      <p class="mt-1 text-sm text-ink/60">Clean, careful software — and a little vaporwave.</p>
+    </div>
+
+    <ul class="flex items-center gap-3">
+      {
+        socials.map((social) => (
+          <li>
+            <a class="footer-link" href={social.href} aria-label={social.label}>
+              {social.icon === 'github' && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.79-.01 3.17 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                </svg>
+              )}
+              {social.icon === 'linkedin' && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V23h-4V8Zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-8.02c0-1.9-.04-4.36-2.66-4.36-2.66 0-3.07 2.08-3.07 4.22V23H8V8Z" />
+                </svg>
+              )}
+              {social.icon === 'email' && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+                  <path d="m3.5 6.5 8.5 6 8.5-6" />
+                </svg>
+              )}
+              {social.icon === 'x' && (
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+                  <path d="M18.24 2.25h3.31l-7.23 8.26L22.75 21.75h-6.65l-5.22-6.82-5.97 6.82H1.6l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z" />
+                </svg>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="border-t border-ink/5 px-4 py-4 text-center text-xs text-ink/50">
+    © {year} Jordan Avery. All rights reserved.
+  </div>
+</footer>
