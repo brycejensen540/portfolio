@@ -52,9 +52,9 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Crystal-Clear Windows With Every Clean',
     metaDescription:
-      'Spotless, streak-free window cleaning services in Evanston, IL and surrounding areas. Interior and exterior, residential and commercial. Call Apollo Professional at (773) 600-1308.',
+      'Spotless, streak-free window cleaning services in Chicago, IL and surrounding areas. Interior and exterior, residential and commercial. Call Apollo Professional at (773) 600-1308.',
     intro:
-      'Dirty, streaky windows block natural light, dull your view, and make your home or business look neglected. Hard water spots, pollen, and grime build up quickly — and are frustrating to remove on your own. At Apollo Professional, we offer professional window cleaning services in and around Evanston, IL with precision and care. Our team ensures every corner and frame is spotless, using methods that enhance curb appeal and let the light back in.',
+      'Dirty, streaky windows block natural light, dull your view, and make your home or business look neglected. Hard water spots, pollen, and grime build up quickly — and are frustrating to remove on your own. At Apollo Professional, we offer professional window cleaning services in and around Chicago, IL with precision and care. Our team ensures every corner and frame is spotless, using methods that enhance curb appeal and let the light back in.',
     body: [
       'Windows are one of the first things people notice about your home or business. When they are streaked, dusty, or covered in grime, it affects both appearance and comfort. Using specialized tools and techniques, our professional window cleaners remove stubborn dirt, road salt, and environmental buildup — inside and out.',
       'We provide window cleaning services for buildings under four floors, with a team equipped to handle the job safely and efficiently. We focus on every detail, from frames to corners, so your windows look their absolute best. Clean windows improve natural light and enhance your view, and we tailor our approach to fit your property. The result: windows that are spotless, streak-free, and brilliant after every service.',
@@ -79,9 +79,9 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Keep Your Gutters Flowing Smoothly',
     metaDescription:
-      'Reliable gutter cleaning services in Evanston, IL and surrounding areas. Clear debris, prevent clogs and water damage. Call Apollo Professional at (773) 600-1308.',
+      'Reliable gutter cleaning services in Chicago, IL and surrounding areas. Clear debris, prevent clogs and water damage. Call Apollo Professional at (773) 600-1308.',
     intro:
-      'Clogged gutters can lead to water overflow, roof damage, and costly repairs. Seasonal debris and heavy rains make keeping them clear a real challenge. Our gutter cleaning services in and around Evanston, IL provide the thorough, reliable care your home needs — we remove all debris, check for blockages, and ensure proper water flow.',
+      'Clogged gutters can lead to water overflow, roof damage, and costly repairs. Seasonal debris and heavy rains make keeping them clear a real challenge. Our gutter cleaning services in and around Chicago, IL provide the thorough, reliable care your home needs — we remove all debris, check for blockages, and ensure proper water flow.',
     body: [
       'Your gutters work hard to protect your home from water damage, but once clogged they can cause serious problems. We go beyond a quick sweep: leaves, dirt, and debris are removed while we check that water drains properly through the system. Our local team knows how to handle seasonal buildup through Chicago’s heavy rains and freeze-thaw cycles.',
       'By keeping your gutters clear, you avoid costly repairs to your roof, foundation, and landscaping. Our process is safe, efficient, and designed to extend the life of your gutters — whether it is a routine cleaning or a post-storm emergency. Let us handle the dirty work so you can enjoy a clean, well-maintained exterior all year long.',
@@ -105,7 +105,7 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Cleaner Screens for Clearer Everyday Living',
     metaDescription:
-      'Professional window screen cleaning service in Evanston, IL. Remove dust, pollen, and buildup for better airflow and brighter rooms. Call (773) 600-1308.',
+      'Professional window screen cleaning service in Chicago, IL. Remove dust, pollen, and buildup for better airflow and brighter rooms. Call (773) 600-1308.',
     intro:
       'Dirty and clogged window screens are one of the most common frustrations homeowners face, especially after long winters and high pollen seasons. Dust, debris, and grime build up quickly, blocking airflow and making freshly cleaned windows still look dull. Many people try to clean screens on their own, only to end up with bent frames, torn mesh, or residue that never fully comes out.',
     body: [
@@ -159,7 +159,7 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Fix Torn Screens and Restore Comfort',
     metaDescription:
-      'Window screen repair service in Evanston, IL. Fix tears, loose mesh, and fitting issues to keep bugs out and air moving. Call Apollo Professional at (773) 600-1308.',
+      'Window screen repair service in Chicago, IL. Fix tears, loose mesh, and fitting issues to keep bugs out and air moving. Call Apollo Professional at (773) 600-1308.',
     intro:
       'Torn, bent, or loose window screens are a common issue for homeowners. Screens take a beating from weather, pets, and everyday use — and once damaged, they stop doing their job. Holes let insects inside, warped frames prevent windows from opening properly, and broken screens reduce airflow during warmer months. Many homeowners delay repairs because quick fixes rarely hold up.',
     body: [
@@ -211,9 +211,9 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Restore Your Surfaces to Like-New Condition',
     metaDescription:
-      'Power washing services in Evanston, IL and surrounding areas. Remove dirt, mold, and stains from driveways, patios, and siding. Call (773) 600-1308.',
+      'Power washing services in Chicago, IL and surrounding areas. Remove dirt, mold, and stains from driveways, patios, and siding. Call (773) 600-1308.',
     intro:
-      'Outdoor surfaces take a beating from weather, traffic, and everyday wear, leaving them stained, discolored, and unattractive. Dirt, mold, and grime not only look bad — they can damage your property over time. Our power washing services in and around Evanston, IL remove built-up contaminants and restore surfaces to their original beauty.',
+      'Outdoor surfaces take a beating from weather, traffic, and everyday wear, leaving them stained, discolored, and unattractive. Dirt, mold, and grime not only look bad — they can damage your property over time. Our power washing services in and around Chicago, IL remove built-up contaminants and restore surfaces to their original beauty.',
     body: [
       'Over time, driveways, patios, siding, and walkways accumulate dirt, mildew, and stains that regular cleaning simply cannot remove. As a trusted pressure washing company, we specialize in residential power washing services tailored to your needs — from driveway and concrete cleaning to vinyl siding, flagstone, and patios.',
       'For heavily soiled areas, our high-pressure cleaning cuts through stubborn buildup without damaging your property, revitalizing surfaces and extending their lifespan. Whether you are preparing your home for sale, enhancing your business exterior, or maintaining your property’s value, our methods are safe, efficient, and environmentally conscious — so your exterior looks cleaner, lasts longer, and makes a stronger first impression.',
@@ -236,7 +236,7 @@ export const services: Service[] = [
     eyebrow: 'Our Services',
     title: 'Restore Clarity to Your Shower Glass',
     metaDescription:
-      'Shower door cleaning service in Evanston, IL. Remove hard water stains and soap scum for clear, sparkling bathroom glass. Call Apollo Professional at (773) 600-1308.',
+      'Shower door cleaning service in Chicago, IL. Remove hard water stains and soap scum for clear, sparkling bathroom glass. Call Apollo Professional at (773) 600-1308.',
     intro:
       'Hard water stains, soap scum, and mineral deposits build up quickly on shower glass, turning a bright bathroom dull and hazy. Ordinary household cleaners rarely touch the buildup that accumulates on panels, frames, and tracks. Our shower door cleaning service removes the stains and residue that plain cleaning leaves behind — bringing clarity and shine back to your bathroom’s glass.',
     body: [

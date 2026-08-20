@@ -29,13 +29,13 @@ const schema = JSON.stringify({
     name: site.name,
     url: site.url,
     telephone: '+1-773-600-1308',
-    address: { '@type': 'PostalAddress', addressLocality: 'Evanston', addressRegion: 'IL', addressCountry: 'US' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
   },
-  areaServed: 'Evanston, IL and the greater Chicago area',
+  areaServed: 'Chicago, IL and the surrounding suburbs',
 });
 ---
 
-<BaseLayout title={`${service.name} Services in Evanston, IL | Apollo Professional`} description={service.metaDescription} schema={schema}>
+<BaseLayout title={`${service.name} Services in Chicago, IL | Apollo Professional`} description={service.metaDescription} schema={schema}>
   <!-- Page header -->
   <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

@@ -6,7 +6,7 @@ import { allAreas } from '../data/areas';
 
 const title = 'Contact Us | Apollo Professional — Get a Free Quote';
 const description =
-  'Request a free quote from Apollo Professional. Window cleaning, gutter cleaning, screens, power washing, and more in Evanston, IL and the greater Chicago area. Call (773) 600-1308.';
+  'Request a free quote from Apollo Professional. Window cleaning, gutter cleaning, screens, power washing, and more in Chicago, IL and the surrounding suburbs. Call (773) 600-1308.';
 
 const schema = JSON.stringify({
   '@context': 'https://schema.org',
@@ -18,7 +18,7 @@ const schema = JSON.stringify({
     name: site.name,
     telephone: '+1-773-600-1308',
     email: site.email,
-    address: { '@type': 'PostalAddress', addressLocality: 'Evanston', addressRegion: 'IL', addressCountry: 'US' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
   },
 });
 ---
@@ -164,7 +164,7 @@ const schema = JSON.stringify({
                 <p class="font-semibold text-navy">Location</p>
                 <p class="text-slate-600">{site.address} · serving {site.radius}</p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Apollo+Professional+Evanston+IL"
+                  href="https://www.google.com/maps/search/?api=1&query=Apollo+Professional+Chicago+IL"
                   target="_blank"
                   rel="noopener"
                   class="mt-1 inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-deep"

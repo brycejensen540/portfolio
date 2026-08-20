@@ -4,9 +4,9 @@ import { site } from '../../data/site';
 import { allAreas } from '../../data/areas';
 import CtaBand from '../../components/CtaBand.astro';
 
-const title = 'Service Areas | Apollo Professional — Evanston, IL & Beyond';
+const title = 'Service Areas | Apollo Professional — Chicago, IL & Beyond';
 const description =
-  'Apollo Professional proudly serves Evanston, IL and nearby communities within a 30-mile radius of Chicago — window cleaning, gutters, screens, and power washing. Call (773) 600-1308.';
+  'Apollo Professional proudly serves Chicago, IL and nearby communities within a 30-mile radius — window cleaning, gutters, screens, and power washing. Call (773) 600-1308.';
 
 const schema = JSON.stringify({
   '@context': 'https://schema.org',
@@ -14,7 +14,7 @@ const schema = JSON.stringify({
   name: site.name,
   url: `${site.url}/areas/`,
   telephone: '+1-773-600-1308',
-  address: { '@type': 'PostalAddress', addressLocality: 'Evanston', addressRegion: 'IL', addressCountry: 'US' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
   areaServed: allAreas.map((a) => a.name),
 });
 ---
@@ -25,10 +25,10 @@ const schema = JSON.stringify({
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">Service Areas</p>
       <h1 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-        Proudly Serving Evanston, IL, and Beyond
+        Proudly Serving Chicago, IL, and Beyond
       </h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-        We proudly serve Evanston, IL, and nearby communities with reliable cleaning solutions — {site.radius}. No
+        We proudly serve Chicago, IL, and nearby communities with reliable cleaning solutions — {site.radius}. No
         matter your location, our team delivers detailed, dependable service you can trust.
       </p>
     </div>

@@ -1,8 +1,8 @@
 # Apollo Professional — Website
 
 A production-ready, static marketing website for **Apollo Professional**, a detail-focused
-window and exterior cleaning company based in Evanston, IL, serving a 30-mile radius around
-Chicago. Built with Astro + TypeScript + Tailwind CSS, with an auto-generated sitemap and
+window and exterior cleaning company based in Chicago, IL, serving a 30-mile radius around
+the city. Built with Astro + TypeScript + Tailwind CSS, with an auto-generated sitemap and
 local-SEO metadata baked into every page.
 
 > Content source: the company's live site (apolloprofessional.net), rebuilt with a fresh,
@@ -22,7 +22,7 @@ local-SEO metadata baked into every page.
 | `/about/`                 | About the company + owner bio (Eric)           |
 | `/services/<slug>/`       | 6 service pages (window, gutter, screens ×2, power washing, shower doors) |
 | `/areas/`                 | Service areas overview (16 communities)        |
-| `/areas/<slug>/`          | Chicago, Evanston, Oak Park, La Grange, Hinsdale |
+| `/areas/<slug>/`          | Chicago, Oak Park, La Grange, Hinsdale |
 | `/contact/`               | Contact form + details                          |
 
 Service and service-area pages are **data-driven**: edit `src/data/services.ts` or

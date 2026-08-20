@@ -2,8 +2,7 @@
   "name": "apollo-professional",
   "type": "module",
   "version": "0.1.0",
-  "private": true,
-  "description": "Apollo Professional — detail-focused window and exterior cleaning in Evanston, IL and the greater Chicago area.",
+  "private": true,    "description": "Apollo Professional — detail-focused window and exterior cleaning in Chicago, IL and the surrounding suburbs.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

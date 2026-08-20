@@ -1,5 +1,5 @@
 // Service areas. The overview page lists every community we serve;
-// the five with a `slug` get their own dedicated page under /areas/<slug>.
+// the four with a `slug` get their own dedicated page under /areas/<slug>.
 // Content for the dedicated pages mirrors the company's current website,
 // with all contact details normalized to the primary number (773) 600-1308.
 
@@ -12,7 +12,6 @@ export type Area = {
 /** The full list of communities served (from the company's website). */
 export const allAreas: Area[] = [
   { name: 'Chicago, IL', slug: 'chicago' },
-  { name: 'Evanston, IL', slug: 'evanston' },
   { name: 'Oak Park, IL', slug: 'oak-park' },
   { name: 'La Grange, IL', slug: 'la-grange' },
   { name: 'Hinsdale, IL', slug: 'hinsdale' },
@@ -67,50 +66,7 @@ export const areaPages: AreaPage[] = [
       'Gutter cleaning is another critical service for Chicago properties, particularly before the heavy rains of spring and the leaf fall of autumn. Clogged gutters overflow during storms, sending water down exterior walls and across windows, creating streaks and potential structural issues. We coordinate gutter cleaning with window washing to address the root cause of recurring window grime, helping you maintain clearer glass between services.',
       'Apollo Professional operates on a straightforward process: contact us to describe your property and cleaning needs, receive a transparent estimate, and schedule service at a time that minimizes disruption. We arrive with the equipment and expertise to complete work safely and efficiently, whether that means ladder access for a three-story brownstone or specialized tools for a commercial rooftop skylight installation. You should expect clear communication, respect for your property, and results that restore the transparency glass is meant to provide.',
     ],
-  },
-  {
-    slug: 'evanston',
-    name: 'Evanston, IL',
-    metaDescription:
-      'Detail-focused window cleaning, gutter cleaning, and exterior cleaning in Evanston, IL — our home base. Call Apollo Professional at (773) 600-1308 for a free quote.',
-    eyebrow: 'Service Area',
-    title: 'Detail-Focused Cleaning in Our Own Backyard',
-    image: '/images/window-600.webp',
-    intro:
-      'Evanston is home base for Apollo Professional, and the North Shore is where we know the weather, the homes, and the buildup best. Lake-effect conditions, salt spray, and mature tree canopies mean windows, gutters, and screens here work harder than most — and collect grime faster. We bring the same detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning we deliver across the greater Chicago area right to our own community.',
-    body: [
-      'From classic lakefront homes to downtown condos, we serve single-family homes, condominiums, HOAs, and select commercial properties throughout Evanston. Our team understands the needs of local homeowners and property managers, and we work to exceed expectations on every job — whether you are preparing a home for sale, refreshing a neighborhood, or maintaining a building.',
-      'Because we are based in Evanston, scheduling is flexible and arrival times are dependable. We confirm the day before service, show up as scheduled, and walk through the completed job with you before we leave. Customers appreciate our thorough work, especially in window corners, and our commitment to always showing up.',
-    ],
-    services: [
-      {
-        title: 'Window Cleaning',
-        description:
-          'Streak-free interior and exterior window cleaning that lets in natural light and restores your view of the lake and the city.',
-      },
-      {
-        title: 'Gutter Cleaning',
-        description:
-          'Debris removal and drainage checks that protect your roof, foundation, and landscaping through every season.',
-      },
-      {
-        title: 'Screen Cleaning & Repair',
-        description:
-          'Clean, repair, and reattach screens to improve airflow, visibility, and function while keeping windows neat.',
-      },
-      {
-        title: 'Power Washing',
-        description:
-          'Remove buildup from driveways, patios, and siding to revive outdoor spaces and extend the life of exterior surfaces.',
-      },
-      {
-        title: 'Shower Door Cleaning',
-        description:
-          'Remove hard water stains and soap residue to bring clarity and shine back to bathroom glass.',
-      },
-    ],
-  },
-  {
+  },  {
     slug: 'oak-park',
     name: 'Oak Park, IL',
     metaDescription:

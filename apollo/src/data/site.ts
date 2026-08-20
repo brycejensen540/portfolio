@@ -5,7 +5,7 @@ export const site = {
   name: 'Apollo Professional',
   tagline: 'Giving you the rare luxury of seeing the world again.',
   description:
-    'Detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning in Evanston, IL and the greater Chicago area.',
+    'Detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning in Chicago, IL and the surrounding suburbs.',
 
   // Primary contact — this is the number every page points to.
   phone: '(773) 600-1308',
@@ -13,7 +13,7 @@ export const site = {
   email: 'apolloprofessional1@gmail.com',
   emailHref: 'mailto:apolloprofessional1@gmail.com',
 
-  address: 'Evanston, IL',
+  address: 'Chicago, IL',
   radius: 'within a 30-mile radius of Chicago',
 
   // Owner / operator (only Eric — Keven is no longer with the company).
