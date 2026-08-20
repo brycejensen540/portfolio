@@ -1,0 +1,9 @@
+# Cloudflare Pages configuration (optional — the dashboard and
+# `wrangler pages deploy dist` work without it). Kept here so the
+# build command and output directory are documented in one place.
+name = "pulse-geometry"
+compatibility_date = "2025-01-01"
+
+[pages]
+build_command = "npm run build"
+build_output_dir = "dist"

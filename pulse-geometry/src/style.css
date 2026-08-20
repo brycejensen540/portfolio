@@ -1,0 +1,624 @@
+/* ============================================================
+   Pulse Geometry — styles
+   Bold, dark, mysterious. Pure black canvas, black-and-white UI
+   with a single sparing accent. Smaller type, thinner strokes,
+   generous whitespace.
+   ============================================================ */
+
+:root {
+  --bg: #000000;
+  --panel: rgba(10, 10, 12, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --text: #f2f2f2;
+  --text-dim: #6e6e76;
+  --accent: #a78bfa; /* the one accent — used sparingly */
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden; /* the app is always full-screen */
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+/* ------------------------------------------------------------------
+   Views — crossfade between landing and renderer
+   ------------------------------------------------------------------ */
+
+.view {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s;
+}
+
+.view.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ------------------------------------------------------------------
+   Landing view
+   ------------------------------------------------------------------ */
+
+#view-landing {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle drifting fog — faint white orbs on pure black. */
+.ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+.orb-a {
+  width: 520px;
+  height: 520px;
+  top: -160px;
+  left: -160px;
+  background: radial-gradient(circle, #ffffff, transparent 65%);
+}
+
+.orb-b {
+  width: 460px;
+  height: 460px;
+  bottom: -140px;
+  right: -140px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.5), transparent 65%);
+  animation-delay: -6s;
+}
+
+.orb-c {
+  width: 280px;
+  height: 280px;
+  top: 14%;
+  right: 16%;
+  background: radial-gradient(circle, #ffffff, transparent 65%);
+  animation-delay: -10s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(40px, 28px) scale(1.15);
+  }
+}
+
+.landing-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 48px 24px;
+  max-width: 640px;
+  animation: fade-up 0.7s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  margin: 0 0 26px;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.title {
+  margin: 0 0 22px;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+/* The accent creeps into the second word only. */
+.title span {
+  background: linear-gradient(90deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  margin: 0 auto 44px;
+  max-width: 30em;
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  padding: 13px 30px;
+  background: var(--text);
+  color: #000;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+}
+
+.picker-label {
+  margin: 56px 0 22px;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.shape-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .shape-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.shape-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 12px 18px;
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shape-card svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+.shape-card span {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.shape-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.18);
+}
+
+.shape-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
+   Renderer view
+   ------------------------------------------------------------------ */
+
+#view-renderer {
+  z-index: 2;
+}
+
+#canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: none; /* drag-to-spin must not scroll or pinch-zoom */
+}
+
+#canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 22px;
+  z-index: 10;
+  pointer-events: none; /* let clicks pass through to the canvas */
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.btn-back {
+  padding: 7px 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  color: var(--text);
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-back:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
+}
+
+.shape-name {
+  padding: 7px 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+/* ------------------------------------------------------------------
+   Control panel — compact, monochrome, user-resizable (desktop)
+   ------------------------------------------------------------------ */
+
+.controls-panel {
+  position: fixed;
+  z-index: 20;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 264px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.panel-head h3 {
+  margin: 0;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.panel-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: transform 0.2s ease;
+}
+
+.controls-panel.open .panel-toggle {
+  transform: rotate(180deg);
+}
+
+.panel-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-mini {
+  padding: 6px 10px;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  color: #0b0b12;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-mini:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.4);
+}
+
+.btn-mini-outline {
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+}
+
+.panel-hint {
+  margin: 0 0 2px;
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-size: 10.5px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slider-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 11.5px;
+}
+
+.slider-head label {
+  color: var(--text-dim);
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  letter-spacing: 0.06em;
+}
+
+.slider-head output {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Range inputs — thin track, small thumb. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 1px solid #000;
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 1px solid #000;
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Corner grip — drag to resize the panel (desktop only). */
+.resize-grip {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 14px;
+  height: 14px;
+  cursor: nwse-resize;
+  touch-action: none;
+  opacity: 0.45;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M10.5 1.5 1.5 10.5 M10.5 5.5 5.5 10.5' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' fill='none'/%3E%3C/svg%3E");
+  transition: opacity 0.15s ease;
+}
+
+.resize-grip:hover {
+  opacity: 1;
+}
+
+/* Mobile: the panel becomes a collapsible bottom sheet. */
+@media (max-width: 899px) {
+  .controls-panel {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+    width: auto;
+    height: auto !important; /* user-resize is a desktop feature */
+    transform: none;
+    max-height: 62vh;
+    padding: 12px 14px;
+  }
+
+  .panel-toggle {
+    display: block;
+  }
+
+  .resize-grip {
+    display: none;
+  }
+
+  /* Collapsed: only the header bar shows. */
+  .panel-body {
+    display: none;
+  }
+
+  .controls-panel.open .panel-body {
+    display: flex;
+  }
+
+  /* Bigger touch targets on phones. */
+  .btn-primary {
+    padding: 15px 32px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Inactivity overlay
+   ------------------------------------------------------------------ */
+
+.inactive-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  animation: fade-in 0.4s ease both;
+}
+
+.inactive-overlay.is-hidden {
+  display: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.inactive-card {
+  text-align: center;
+  max-width: 360px;
+  padding: 40px 44px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+.inactive-title {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.inactive-text {
+  margin: 0 0 30px;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .landing-inner,
+  .inactive-overlay {
+    animation: none;
+  }
+
+  .view {
+    transition: none;
+  }
+}

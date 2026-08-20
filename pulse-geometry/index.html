@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Geometry — Psychedelic Geometric Visuals</title>
+    <meta
+      name="description"
+      content="Pulse Geometry is a free, browser-based psychedelic visualizer. Hypnotic glowing geometry that pulses, morphs, and cycles color in real time. Drag to spin, scroll to zoom."
+    />
+
+    <!-- Fonts: Space Grotesk (display) + IBM Plex Mono (labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pulse Geometry" />
+    <meta
+      property="og:description"
+      content="Hypnotic, ever-evolving geometric visuals in your browser. Pick a shape, tweak the knobs, and let it pulse."
+    />
+    <meta property="og:image:alt" content="Glowing geometric rings on a pure black background" />
+    <meta property="og:image" content="/og-image.svg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pulse Geometry" />
+    <meta
+      name="twitter:description"
+      content="Hypnotic, ever-evolving geometric visuals in your browser."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ============ LANDING VIEW ============ -->
+      <section id="view-landing" class="view is-active" aria-label="Start screen">
+        <div class="ambient" aria-hidden="true">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="orb orb-c"></div>
+        </div>
+
+        <div class="landing-inner">
+          <p class="eyebrow">Psychedelic geometry · in motion</p>
+          <h1 class="title">Pulse <span>Geometry</span></h1>
+          <p class="tagline">
+            Hypnotic geometry against pure black. Choose a shape — or let fate decide.
+          </p>
+
+          <div class="actions">
+            <button id="btn-random" class="btn btn-primary">Start — Random Shape</button>
+          </div>
+
+          <h2 class="picker-label">Or choose a shape</h2>
+          <div id="shape-grid" class="shape-grid" role="list"></div>
+        </div>
+      </section>
+
+      <!-- ============ RENDERER VIEW ============ -->
+      <section id="view-renderer" class="view" aria-label="Interactive renderer">
+        <canvas id="canvas" aria-label="Animated geometric visualization"></canvas>
+
+        <div class="topbar">
+          <button id="btn-back" class="btn-back" type="button">← Start</button>
+          <span id="shape-name" class="shape-name"></span>
+        </div>
+
+        <!-- Control panel (populated by src/ui/controls.ts) -->
+        <aside id="controls-panel" class="controls-panel" aria-label="Visual controls">
+          <div class="panel-head">
+            <h3>Controls</h3>
+            <button id="panel-toggle" class="panel-toggle" type="button" aria-label="Toggle controls">▾</button>
+            <div class="panel-actions">
+              <button id="btn-randomize" class="btn-mini" type="button">Randomize</button>
+              <button id="btn-reset" class="btn-mini btn-mini-outline" type="button">Reset</button>
+            </div>
+          </div>
+          <div id="panel-body" class="panel-body">
+            <p class="panel-hint">Drag canvas to spin · Scroll to zoom</p>
+            <!-- sliders injected here -->
+          </div>
+          <div id="resize-grip" class="resize-grip" role="separator" aria-orientation="horizontal" aria-label="Resize controls panel"></div>
+        </aside>
+
+        <!-- Inactivity overlay (hidden until the 5-minute freeze fires) -->
+        <div id="inactive-overlay" class="inactive-overlay is-hidden" role="dialog" aria-modal="true" aria-labelledby="inactive-title">
+          <div class="inactive-card">
+            <p id="inactive-title" class="inactive-title">Paused</p>
+            <p class="inactive-text">
+              No activity for 5 minutes, so the animation has frozen on this frame.
+              Click anywhere to return to the start screen.
+            </p>
+            <button id="btn-inactive-reset" class="btn btn-primary" type="button">Back to Start</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

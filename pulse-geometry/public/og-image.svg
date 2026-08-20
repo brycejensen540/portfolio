@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#000000" />
+  <g fill="none" stroke-linecap="round">
+    <circle cx="600" cy="280" r="92" stroke="#ffffff" stroke-width="1.5" opacity="0.95" />
+    <circle cx="600" cy="280" r="150" stroke="#ffffff" stroke-width="1" opacity="0.4" />
+    <circle cx="600" cy="280" r="212" stroke="#a78bfa" stroke-width="1" opacity="0.5" />
+    <circle cx="600" cy="280" r="278" stroke="#ffffff" stroke-width="0.75" opacity="0.18" />
+  </g>
+  <text x="600" y="480" font-family="'Space Grotesk', 'Helvetica Neue', sans-serif" font-size="72" font-weight="700" fill="#f2f2f2" text-anchor="middle">
+    Pulse Geometry
+  </text>
+  <text x="600" y="540" font-family="'IBM Plex Mono', monospace" font-size="26" letter-spacing="6" fill="#6e6e76" text-anchor="middle">
+    DRAG TO SPIN · SCROLL TO ZOOM
+  </text>
+</svg>
