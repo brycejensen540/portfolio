@@ -1,13 +1,14 @@
-// Placeholder project data for the v1 portfolio.
-// Replace entries here and both the Home teaser and the Projects page
-// will update automatically (nothing else needs to change).
+// Project data for the portfolio, sourced from real GitHub repos
+// (github.com/brycejensen540). Edit entries here and both the Home
+// teaser and the Projects page update automatically.
 
 export interface Project {
   title: string;
   description: string;
   tags: string[];
-  /** Placeholder URLs for now — point these at real deployments and repos. */
+  /** Deployed URL if one exists; set to "#" while there's no live version. */
   liveUrl: string;
+  /** Real repository URL ("Code" link). */
   codeUrl: string;
   /** Tints the placeholder graphic teal or orange. */
   tone: 'teal' | 'orange';
@@ -17,62 +18,62 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Lumen',
+    title: 'TicTacToe',
     description:
-      'A local-first note-taking app for people who think in scattered fragments. Markdown in, tidy graphs out.',
-    tags: ['TypeScript', 'Svelte', 'SQLite'],
+      'A simple command-line Tic Tac Toe game, playable start to finish in the terminal.',
+    tags: ['Java'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/TicTacToe',
     tone: 'teal',
     featured: true,
   },
   {
-    title: 'Harbor',
+    title: 'MyWebServer',
     description:
-      'A single dashboard for every service you run: health, logs, and one-click deploys. Built to answer “is it up?” in one glance.',
-    tags: ['React', 'Node.js', 'Docker'],
+      'A generic web server that handles HTML and plain-text file requests, written in Java.',
+    tags: ['Java', 'Networking'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/MyWebServer',
     tone: 'orange',
     featured: true,
   },
   {
-    title: 'Gridfolio',
+    title: 'DNStest',
     description:
-      'A tiny, framework-free portfolio kit that ships a full site in minutes. This very layout is a distant cousin of it.',
-    tags: ['Astro', 'Tailwind CSS', 'MDX'],
+      'A simple DNS script for testing response times from the command line.',
+    tags: ['Shell', 'DNS'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/DNStest',
     tone: 'teal',
     featured: true,
   },
   {
-    title: 'Pulse',
+    title: 'deleteOldTweets',
     description:
-      'A terminal habit tracker. Set a habit, stay honest, and let the streak carry you.',
-    tags: ['Rust', 'SQLite'],
+      'A script to get rid of old Twitter history.',
+    tags: ['JavaScript', 'Scripting'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/deleteOldTweets',
     tone: 'orange',
     featured: false,
   },
   {
-    title: 'Range',
+    title: 'ReadCSVfile',
     description:
-      'Async standups and weekly retros without the meeting overhead. Written with remote teams in mind.',
-    tags: ['TypeScript', 'Next.js', 'Postgres'],
+      'A simple Java program to read and parse CSV files.',
+    tags: ['Java', 'CSV'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/ReadCSVfile',
     tone: 'teal',
     featured: false,
   },
   {
-    title: 'Drift',
+    title: 'BlockchainExample',
     description:
-      'A quiet menubar weather app that gives you the forecast in two seconds flat.',
-    tags: ['Swift', 'SwiftUI'],
+      'A simple example of how a blockchain can be implemented in Java.',
+    tags: ['Java', 'Blockchain'],
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/brycejensen540/BlockchainExample',
     tone: 'orange',
     featured: false,
   },

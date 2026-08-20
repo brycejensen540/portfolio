@@ -51,12 +51,17 @@ const subtle = isTeal ? 'from-teal/15 via-paper to-orange/5' : 'from-orange/15 v
     </ul>
 
     <div class="mt-auto flex items-center gap-5 pt-1">
-      <a class="link-arrow" href={project.liveUrl}>
-        Live demo
-        <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" />
-        </svg>
-      </a>
+      {
+        // Only show "Live demo" when the project actually has a deployed URL.
+        project.liveUrl && project.liveUrl !== '#' && (
+          <a class="link-arrow" href={project.liveUrl}>
+            Live demo
+            <svg viewBox="0 0 16 16" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" />
+            </svg>
+          </a>
+        )
+      }
       <a
         class="text-sm font-semibold text-ink/60 underline-offset-4 transition-colors duration-200 hover:text-orange hover:underline"
         href={project.codeUrl}
