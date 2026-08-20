@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+import { services, type Service } from '../../data/services';
+import CtaBand from '../../components/CtaBand.astro';
+import PlaceholderImage from '../../components/PlaceholderImage.astro';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+const others = services.filter((s) => s.slug !== service.slug);
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: service.name,
+  description: service.shortDescription,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: site.name,
+    url: site.url,
+    telephone: '+1-773-600-1308',
+    address: { '@type': 'PostalAddress', addressLocality: 'Evanston', addressRegion: 'IL', addressCountry: 'US' },
+  },
+  areaServed: 'Evanston, IL and the greater Chicago area',
+});
+---
+
+<BaseLayout title={`${service.name} Services in Evanston, IL | Apollo Professional`} description={service.metaDescription} schema={schema}>
+  <!-- Page header -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-wider text-sky-bright">{service.eyebrow}</p>
+      <h1 class="mt-3 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        {service.title}
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">{service.intro}</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="/contact/#quote" class="btn-primary px-7 py-3.5 text-base">Get a Free Quote</a>
+        <a href={site.phoneHref} class="btn-outline-light px-7 py-3.5 text-base">
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          </svg>
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal mb-12">
+        <PlaceholderImage topic={service.imageTopic} label={service.name} class="aspect-[21/9]" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+        <!-- Copy -->
+        <div class="reveal">
+          {service.body.map((paragraph) => (
+            <p class="mb-5 leading-relaxed text-slate-600">{paragraph}</p>
+          ))}
+
+          {service.faqs && service.faqs.length > 0 && (
+            <div class="mt-10">
+              <h2 class="font-display text-2xl font-bold text-navy">Frequently Asked Questions</h2>
+              <div class="mt-6 space-y-3">
+                {service.faqs.map((faq) => (
+                  <details class="group rounded-xl border border-slate-200 bg-navy-faint">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-navy [&::-webkit-details-marker]:hidden">
+                      {faq.question}
+                      <svg class="h-4 w-4 shrink-0 text-sky transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </summary>
+                    <p class="px-5 pb-5 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- Benefits sidebar -->
+        <aside class="reveal h-fit rounded-2xl border border-slate-200 bg-navy-faint p-7 shadow-soft lg:sticky lg:top-28">
+          <h2 class="font-display text-xl font-bold text-navy">Service Benefits</h2>
+          <ul class="mt-5 space-y-4">
+            {service.benefits.map((benefit) => (
+              <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-700">
+                <svg class="mt-0.5 h-5 w-5 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-7 border-t border-slate-200 pt-6">
+            <p class="text-sm text-slate-500">Ready to get started?</p>
+            <div class="mt-3 flex flex-col gap-3">
+              <a href="/contact/#quote" class="btn-primary px-5 py-2.5 text-sm">Get a Free Quote</a>
+              <a href={site.phoneHref} class="btn-outline-dark px-5 py-2.5 text-sm">Call {site.phone}</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other services -->
+  <section class="border-t border-slate-200 bg-navy-faint py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-2xl font-bold text-navy">Explore More Services</h2>
+      <div class="mt-6 flex flex-wrap gap-3">
+        {others.map((other) => (
+          <a
+            href={`/services/${other.slug}/`}
+            class="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-navy shadow-soft transition-all hover:-translate-y-0.5 hover:border-sky hover:text-sky-deep"
+          >
+            {other.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

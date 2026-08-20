@@ -1,0 +1,86 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  /** Full <title> text for the page (brand is appended here). */
+  title: string;
+  /** Unique meta description for the page. */
+  description: string;
+  /** Optional JSON-LD schema injected as a script tag. */
+  schema?: string;
+}
+
+const { title, description, schema } = Astro.props;
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, Astro.site);
+const ogImage = new URL('/og-image.svg', Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Enable CSS-driven interactions (reveal animations) only when JS is available. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    {schema && <script is:inline type="application/ld+json" set:html={schema} />}
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only z-[60] bg-sky px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:rounded-full"
+    >
+      Skip to content
+    </a>
+
+    <Header currentPath={pathname} />
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      import '../scripts/menu.ts';
+      import '../scripts/reveal.ts';
+    </script>
+  </body>
+</html>

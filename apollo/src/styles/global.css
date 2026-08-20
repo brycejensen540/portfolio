@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Smooth anchor scrolling; disabled automatically for reduced-motion users. */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-900 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-sky-soft text-navy-deep;
+  }
+}
+
+@layer components {
+  /* Buttons — used across the site for the main conversions. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-sky text-white hover:bg-sky-deep hover:-translate-y-0.5 hover:shadow-glow;
+  }
+
+  .btn-outline-light {
+    @apply btn border border-white/30 text-white hover:border-sky-bright hover:text-sky-bright hover:-translate-y-0.5;
+  }
+
+  .btn-outline-dark {
+    @apply btn border border-navy/20 text-navy hover:border-sky hover:text-sky-deep hover:-translate-y-0.5;
+  }
+
+  /* Card hover: subtle lift + a soft accent glow. */
+  .card-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-glow;
+  }
+}
+
+/* Scroll-reveal. Elements start slightly lower and fade in once they
+   enter the viewport. Gate everything behind `.js` (added by a tiny
+   inline script) and respect prefers-reduced-motion. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

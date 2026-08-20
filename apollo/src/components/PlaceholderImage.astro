@@ -1,0 +1,83 @@
+---
+// Placeholder "photography" for the v1 site. Each topic renders a small
+// geometric illustration on a navy gradient. Swap these for real photos
+// later without touching any page structure.
+
+import type { ImageTopic } from '../data/services';
+
+interface Props {
+  topic: ImageTopic;
+  label?: string;
+  class?: string;
+}
+
+const { topic, label = 'Placeholder image', class: className = '' } = Astro.props;
+
+const illustrations: Record<ImageTopic, string> = {
+  // A window with mullions catching a sparkle.
+  window: `
+    <rect x="12" y="12" width="40" height="40" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M32 12v40M12 32h40" stroke="white" stroke-width="2.5"/>
+    <path d="M19 19l2.5 2.5M23.5 22.5l-2.5-1" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+    <path d="M44 44l3 3" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  `,
+  // A roofline with a downspout.
+  gutter: `
+    <path d="M10 28h44l-5 8H15l-5-8z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M24 36v16M20 40h8" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M14 22h36" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  `,
+  // A screen frame with mesh grid.
+  screen: `
+    <rect x="12" y="16" width="40" height="32" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M12 24h40M12 32h40M12 40h40M20 16v32M28 16v32M36 16v32M44 16v32" stroke="white" stroke-width="1.1" opacity="0.55"/>
+  `,
+  // A screen being repaired — needle and thread across a tear.
+  repair: `
+    <rect x="12" y="16" width="40" height="32" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M12 26h40M20 16v32M36 16v32" stroke="white" stroke-width="1.1" opacity="0.5"/>
+    <path d="M30 24l-8 8" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M24 30l6-4" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  `,
+  // A spray pattern from a pressure washer.
+  pressure: `
+    <path d="M16 44l10-6" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <path d="M30 12v18" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M26 30h8v6h-8z" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M34 32l8-6M34 36l10-2" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M22 50h20" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  `,
+  // A shower door with droplets.
+  shower: `
+    <rect x="18" y="10" width="28" height="44" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M28 10v44M18 26h28" stroke="white" stroke-width="2" opacity="0.5"/>
+    <path d="M34 18l1.5 2.5M40 30l2 2.5M32 36l2 3" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+  `,
+  // Sun + sparkles — used for the hero.
+  sparkle: `
+    <circle cx="32" cy="32" r="10" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M32 14v6M32 44v6M14 32h6M44 32h6M21 21l4 4M39 39l4 4M43 21l-4 4M25 39l-4 4" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+    <path d="M50 12l1.5 2.5M54 22l2.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  `,
+  // A stylized person — used on the About page.
+  team: `
+    <circle cx="32" cy="24" r="9" fill="none" stroke="white" stroke-width="2.5"/>
+    <path d="M14 54c2-12 9-18 18-18s16 6 18 18" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M32 40v8" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+  `,
+  // A pin on a map.
+  map: `
+    <path d="M32 12c-8 0-14 6.4-14 14.3C18 39 32 52 32 52s14-13 14-25.7C46 18.4 40 12 32 12z" fill="none" stroke="white" stroke-width="2.5"/>
+    <circle cx="32" cy="26" r="5" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+  `,
+};
+---
+
+<div class={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy via-navy-mid to-sky-deep ${className}`} role="img" aria-label={label}>
+  <svg viewBox="0 0 64 64" class="h-full w-full opacity-90" aria-hidden="true">
+    <Fragment set:html={illustrations[topic]} />
+  </svg>
+  <span class="absolute bottom-3 left-3 rounded-full bg-navy-deep/70 px-3 py-1 text-[11px] font-medium tracking-wide text-white/80">
+    {label}
+  </span>
+</div>

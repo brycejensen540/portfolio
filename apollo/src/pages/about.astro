@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import CtaBand from '../components/CtaBand.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
+
+const title = 'About Us | Apollo Professional — Evanston, IL';
+const description =
+  'Meet Apollo Professional — a detail-focused cleaning team in Evanston, IL serving the greater Chicago area. Window cleaning, gutters, screens, power washing, and more. Call (773) 600-1308.';
+
+const values = [
+  {
+    title: 'Detail-Focused',
+    text: 'Customers appreciate our thorough work — especially in window corners. Every job gets our full attention, with high-quality results that last.',
+  },
+  {
+    title: 'We Always Show Up',
+    text: 'Reliability is our reputation. We arrive as scheduled, communicate clearly, and walk through the finished job with you before we leave.',
+  },
+  {
+    title: 'Local Expertise',
+    text: 'Based in Evanston and serving a 30-mile radius around Chicago, we know the weather, the homes, and the buildup local properties face.',
+  },
+  {
+    title: 'Respect for Your Property',
+    text: 'We protect your floors and furniture during interior work, rinse exterior surfaces thoroughly, and leave no mess behind.',
+  },
+];
+
+const audiences = [
+  { name: 'Homeowners', text: 'Single-family homes, condos, and townhomes across the North Shore and western suburbs.' },
+  { name: 'HOAs & Property Managers', text: 'Dependable, repeatable exterior maintenance for common areas and individual units.' },
+  { name: 'Real Estate Agents', text: 'Sparkling windows and spotless exteriors that help listings show their best.' },
+  { name: 'Select Commercial', text: 'Storefronts, offices, and low-rise buildings that project a professional image.' },
+];
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Apollo Professional',
+  url: `${site.url}/about/`,
+  about: {
+    '@type': 'LocalBusiness',
+    name: site.name,
+    telephone: '+1-773-600-1308',
+    address: { '@type': 'PostalAddress', addressLocality: 'Evanston', addressRegion: 'IL', addressCountry: 'US' },
+  },
+});
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- Page header -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-wider text-sky-bright">About Us</p>
+      <h1 class="mt-3 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Detail-Focused Cleaning Services in Evanston, IL, and Beyond
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+        We provide premium cleaning services tailored to homeowners, HOAs, real estate agents, and select commercial
+        clients. Our focus on detail and reliability sets us apart — filling the gap left by retiring window cleaners.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div class="reveal">
+        <h2 class="font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">Who We Are</h2>
+        <p class="mt-5 leading-relaxed text-slate-600">
+          We offer window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning
+          to keep properties looking their best. Serving both residential and commercial properties, we deliver results
+          that enhance curb appeal, protect property investments, and make every space feel brighter.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          Our team understands the needs of single-family homes, condos, and businesses, and we work to exceed
+          expectations on every job. Whether preparing a home for sale, refreshing a neighborhood, or maintaining a
+          building, our services are designed to make a visible impact. Every project receives our full attention,
+          ensuring high-quality results that last.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          To make scheduling easier, customers in the West and Southwest suburbs can contact Eric at {site.phone}.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact/#quote" class="btn-primary px-6 py-3 text-sm">Message Our Team</a>
+          <a href={site.phoneHref} class="btn-outline-dark px-6 py-3 text-sm">Call {site.phone}</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <PlaceholderImage topic="team" label="Eric — owner & operator" class="aspect-[4/3]" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="border-y border-slate-200 bg-navy-faint" aria-label="Quick facts">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
+      {[
+        { value: `${site.rating.score}/5.0`, label: 'Google rating' },
+        { value: site.rating.count, label: 'Happy customers' },
+        { value: '5 yrs', label: 'Cleaning experience' },
+        { value: '30 mi', label: 'Service radius' },
+      ].map((stat) => (
+        <div class="text-center">
+          <p class="font-display text-3xl font-extrabold text-navy">{stat.value}</p>
+          <p class="mt-1 text-sm text-slate-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Owner -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">The Owner</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">Meet Eric</h2>
+      </div>
+      <div class="reveal mx-auto mt-12 grid max-w-4xl items-center gap-10 rounded-3xl border border-slate-200 bg-navy-faint p-8 shadow-soft sm:p-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+        <PlaceholderImage topic="team" label="Eric" class="aspect-square" />
+        <div>
+          <h3 class="font-display text-2xl font-bold text-navy">Eric — Owner & Operator</h3>
+          <p class="mt-4 leading-relaxed text-slate-600">
+            “I’m Eric, the owner of Apollo Professional, and I’m here to give you a satisfactory clean. With 5 years of
+            experience, I’m confident you will be impressed with my skills and attention to detail. I enjoy window
+            cleaning because it gives me time to be outdoors, and I enjoy giving people the pleasure of seeing nature
+            again. When I’m not cleaning windows, I enjoy hiking, a good movie, or riding my bike.”
+          </p>
+          <p class="mt-4 leading-relaxed text-slate-600">
+            If you value a seamless window cleaning experience, reach out and schedule a cleaning today.
+          </p>
+          <a href="/contact/#quote" class="btn-primary mt-6 px-6 py-3 text-sm">Request Your Cleaning Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-navy-faint py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">What Sets Us Apart</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          Delivering Thorough, Reliable Results Every Time
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2">
+        {values.map((value, i) => (
+          <div class="reveal card-lift rounded-2xl border border-slate-200 bg-white p-7 shadow-soft" style={`transition-delay: ${(i % 2) * 60}ms`}>
+            <h3 class="font-display text-lg font-bold text-navy">{value.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">{value.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we serve -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">Who We Serve</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          Residential & Select Commercial
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {audiences.map((audience, i) => (
+          <div class="reveal card-lift rounded-2xl border border-slate-200 bg-navy-faint p-6 shadow-soft" style={`transition-delay: ${(i % 4) * 60}ms`}>
+            <h3 class="font-display text-lg font-bold text-navy">{audience.name}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">{audience.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

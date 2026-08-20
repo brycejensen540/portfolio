@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+import { allAreas } from '../data/areas';
+import { reviews } from '../data/reviews';
+import ServiceCard from '../components/ServiceCard.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
+
+const title = 'Apollo Professional | Window & Exterior Cleaning in Evanston, IL';
+const description =
+  'Detail-focused window cleaning, gutter cleaning, screen cleaning and repair, power washing, and shower door cleaning in Evanston, IL and the greater Chicago area. Call (773) 600-1308.';
+
+const featured = services.filter((s) => s.featured);
+const homeReviews = reviews.slice(0, 6);
+
+// LocalBusiness schema — gives search engines structured trust signals.
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  telephone: '+1-773-600-1308',
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Evanston',
+    addressRegion: 'IL',
+    addressCountry: 'US',
+  },
+  areaServed: 'Greater Chicago area, IL',
+  founder: { '@type': 'Person', name: 'Eric' },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '22:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday'],
+      opens: '10:00',
+      closes: '22:00',
+    },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: site.rating.score,
+    reviewCount: '33',
+  },
+  priceRange: '$$',
+});
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <!-- ============ Hero ============ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
+    <!-- Subtle geometric grid, very restrained. -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.07]"
+      style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 44px 44px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-28 lg:px-8">
+      <div>
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky/40 bg-sky/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-sky-bright">
+          <span class="h-1.5 w-1.5 rounded-full bg-sky-bright" aria-hidden="true"></span>
+          Evanston, IL · Serving the greater Chicago area
+        </p>
+        <h1 class="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Detail-Focused<br /><span class="text-sky-bright">Every Single Time</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+          {site.tagline} We provide top-quality cleaning solutions that keep your property looking its best —
+          completed thoroughly, on time, and with unmatched attention to detail.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact/#quote" class="btn-primary px-7 py-3.5 text-base">Get a Free Quote</a>
+          <a href={site.phoneHref} class="btn-outline-light px-7 py-3.5 text-base">
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
+            Call {site.phone}
+          </a>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/70">
+          <span class="flex items-center gap-2">
+            <span class="flex text-sky-bright" aria-label="Rated 5 out of 5 stars">
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
+            </span>
+            <strong class="text-white">{site.rating.score}/5.00</strong> · {site.rating.label}
+          </span>
+          <span>Serving {site.radius}</span>
+        </div>
+      </div>
+
+      <div class="reveal hidden lg:block">
+        <PlaceholderImage topic="sparkle" label="Crystal-clear windows" class="aspect-square max-w-md ml-auto rotate-2 shadow-glow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Trust bar ============ -->
+  <section class="border-b border-slate-200 bg-white" aria-label="Quick facts">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
+      {[
+        { value: `${site.rating.score}/5.0`, label: 'Google rating' },
+        { value: site.rating.count, label: 'Happy customers' },
+        { value: '30 mi', label: 'Service radius' },
+        { value: '7 days', label: 'Open every week' },
+      ].map((stat) => (
+        <div class="text-center">
+          <p class="font-display text-3xl font-extrabold text-navy">{stat.value}</p>
+          <p class="mt-1 text-sm text-slate-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ About teaser ============ -->
+  <section class="bg-navy-faint py-20 lg:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div class="reveal">
+        <PlaceholderImage topic="window" label="Spotless windows, every time" class="aspect-[4/3]" />
+      </div>
+      <div class="reveal">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">Introducing Our Detail-Driven Cleaning Team</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          Trusted Cleaning Services in Evanston, IL, and Surrounding Areas
+        </h2>
+        <p class="mt-5 leading-relaxed text-slate-600">
+          Finding reliable cleaning services can be frustrating, especially when quality is inconsistent and deadlines
+          aren’t met. We specialize in delivering dependable, high-quality cleaning solutions in Evanston, IL, and
+          surrounding areas {site.radius}. With a focus on detail and reliability, Apollo Professional fills a market gap
+          left by retiring window cleaners — providing you the rare luxury of seeing the world again.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          Our window cleaning leaves glass streak-free and clear. Gutter cleaning removes debris to protect your home from
+          water damage. Screen cleaning and repair improves airflow while keeping pests out. Power washing restores
+          driveways, patios, and siding. Shower door cleaning eliminates hard water stains and soap scum. We’re committed
+          to showing up and exceeding expectations, whether it’s sparkling windows, clear gutters, or spotless exteriors.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="/about/" class="btn-primary px-6 py-3 text-sm">Know More About Us</a>
+          <a href={site.phoneHref} class="btn-outline-dark px-6 py-3 text-sm">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Services grid ============ -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">What We Do</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          Professional Cleaning Services for Every Surface
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          From sparkling windows to clear gutters, we handle the details so your property looks its absolute best.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, i) => (
+          <div class="reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+            <ServiceCard service={service} index={i + 1} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Featured services ============ -->
+  <section class="bg-navy-faint py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">Featured Services</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          The Services Our Customers Rely On Most
+        </h2>
+      </div>
+      <div class="mt-12 space-y-16">
+        {featured.map((service, i) => (
+          <div class="reveal grid items-center gap-10 lg:grid-cols-2">
+            <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+              <PlaceholderImage topic={service.imageTopic} label={service.name} class="aspect-[4/3]" />
+            </div>
+            <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+              <h3 class="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">{service.name}</h3>
+              <p class="mt-4 leading-relaxed text-slate-600">{service.shortDescription}</p>
+              <ul class="mt-6 space-y-3">
+                {service.benefits.slice(0, 4).map((benefit) => (
+                  <li class="flex items-start gap-3 text-sm text-slate-700">
+                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+              <a href={`/services/${service.slug}/`} class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-sky transition-colors hover:text-sky-deep">
+                Read more
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Service areas ============ -->
+  <section class="bg-white py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">Where We Work</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          Proudly Serving the Greater Chicago Area
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          Based in Evanston, we serve homes and businesses {site.radius}.
+        </p>
+      </div>
+      <ul class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {allAreas.map((area) => (
+          <li>
+            {area.slug ? (
+              <a
+                href={`/areas/${area.slug}/`}
+                class="card-lift flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-navy shadow-soft"
+              >
+                <svg class="h-4 w-4 shrink-0 text-sky" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                {area.name}
+              </a>
+            ) : (
+              <span class="flex items-center gap-2 rounded-xl border border-slate-200 bg-navy-faint px-4 py-3 text-sm font-medium text-slate-600">
+                <svg class="h-4 w-4 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                {area.name}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10 text-center">
+        <a href="/areas/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky transition-colors hover:text-sky-deep">
+          See all service areas
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Testimonials ============ -->
+  <section class="bg-navy-faint py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-wider text-sky">Testimonials</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+          See Why Our Cleaning Services Shine
+        </h2>
+        <p class="mt-4 text-sm text-slate-500">
+          Rated <strong class="text-navy">{site.rating.score}/5.0</strong> across {site.rating.count} Google reviews
+        </p>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {homeReviews.map((review, i) => (
+          <div class="reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+            <ReviewCard review={review} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
