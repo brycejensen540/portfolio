@@ -62,8 +62,9 @@ NPM=.tooling/node-v24.19.0-win-x64/node_modules/npm/bin/npm-cli.js
 
 1. **Domain** — in `astro.config.mjs` replace the placeholder `site` URL
    (used by the sitemap).
-2. **Name** — replace "Jordan Avery" in `Header.astro`, `Footer.astro`,
-   `BaseLayout.astro`, and the Home/About copy.
+2. **Identity** — the site uses the name **Bryce Jensen** (in `Header.astro`,
+   `Footer.astro`, `BaseLayout.astro`, and the Home/About copy). The footer's
+   GitHub link is a `#` placeholder until a profile URL is chosen.
 3. **Projects** — edit `src/data/projects.ts` (single source shared by Home
    and Projects). Replace `#` links with real URLs.
 4. **Fonts** — the Google Fonts `<link>` lives in `src/layouts/BaseLayout.astro`;
