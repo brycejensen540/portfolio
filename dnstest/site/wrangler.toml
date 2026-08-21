@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for the DNStest companion website.
+# The site lives in the `site/` subfolder of the repo, so the Pages build
+# runs with `site/` as the root directory and this file is read from there.
+name = "dnstest"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"

@@ -1,0 +1,46 @@
+# Deploy the DNStest companion website to Cloudflare Pages on every push to
+# `main`. The site lives in the `site/` subfolder, so the build runs there
+# and that folder holds wrangler.toml (pages_build_output_dir = "dist").
+#
+# One-time setup: create a Cloudflare API token (My Profile -> API Tokens ->
+# Create Token -> "Edit Cloudflare Workers" template or a custom token with
+# Account: Cloudflare Pages: Edit + Account: Workers Scripts: Edit) and store
+# it as a repo secret:
+#
+#   gh secret set CLOUDFLARE_API_TOKEN --repo brycejensen540/DNStest
+
+name: Deploy site to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: cloudflare-pages
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install and build
+        working-directory: site
+        run: |
+          npm ci
+          npm run build
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: site
+          command: pages deploy dist --project-name=dnstest --branch=main

@@ -123,6 +123,33 @@ small hand-rolled table renderer. No config files, no database, no server.
 The companion landing page (pure-black terminal aesthetic) lives in
 [`site/`](site/) — see [`site/README.md`](site/README.md) for build steps.
 
+## Auto-deploy the website to Cloudflare Pages
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the
+companion site and pushes it to Cloudflare Pages on **every push to `main`**.
+Live site: **https://dnstest-dyh.pages.dev** (the plain `dnstest.pages.dev`
+name was already taken, so Cloudflare assigned the `-dyh` suffix).
+
+The site lives in the `site/` subfolder, so the workflow runs the build there
+and reads `site/wrangler.toml` (`pages_build_output_dir = "dist"`).
+
+**One-time setup** (the only manual step is creating the API token):
+
+1. Create a Cloudflare API token: dashboard → **My Profile → API Tokens →
+   Create Token → "Edit Cloudflare Workers"** template (or a custom token)
+   with *Account: Cloudflare Pages: Edit* and *Account: Workers Scripts: Edit*.
+2. Add it as a repo secret so the workflow can deploy:
+
+   ```bash
+   gh secret set CLOUDFLARE_API_TOKEN --repo brycejensen540/DNStest
+   ```
+
+3. Push to `main` — the workflow builds and deploys automatically. Watch it
+   under **Actions** on GitHub; deployments appear in the Pages project.
+
+> The workflow only runs once the secret exists — until then pushes will show
+> a failed "Deploy site to Cloudflare Pages" check, which is expected.
+
 ## License
 
 Not yet decided — add a `LICENSE` file here before public release.
