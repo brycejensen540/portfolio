@@ -7,8 +7,8 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   // The sitemap integration uses `site` to build absolute URLs.
-  // Replace this placeholder with your real domain before deploying.
-  site: 'https://example.com',
+  // This is the Cloudflare Pages deployment URL for the portfolio.
+  site: 'https://bryce-jensen-portfolio.pages.dev',
 
   // applyBaseStyles: false lets us write the three Tailwind directives
   // ourselves in src/styles/global.css (see that file).
