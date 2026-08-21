@@ -18,63 +18,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'TicTacToe',
+    title: 'Apollo Professional',
     description:
-      'A simple command-line Tic Tac Toe game, playable start to finish in the terminal.',
-    tags: ['Java'],
-    liveUrl: '#',
-    codeUrl: 'https://github.com/brycejensen540/TicTacToe',
-    tone: 'teal',
-    featured: true,
-  },
-  {
-    title: 'MyWebServer',
-    description:
-      'A generic web server that handles HTML and plain-text file requests, written in Java.',
-    tags: ['Java', 'Networking'],
-    liveUrl: '#',
-    codeUrl: 'https://github.com/brycejensen540/MyWebServer',
+      'A premium, conversion-focused website for a Chicago window and exterior cleaning company — rebuilt from the ground up with the real brand, photography, and local SEO baked in.',
+    tags: ['Astro', 'Tailwind CSS', 'TypeScript'],
+    liveUrl: 'https://apollo-professional.pages.dev',
+    codeUrl: 'https://github.com/brycejensen540/apollo-professional',
     tone: 'orange',
     featured: true,
   },
   {
     title: 'DNStest',
     description:
-      'A simple DNS script for testing response times from the command line.',
-    tags: ['Shell', 'DNS'],
-    liveUrl: '#',
+      'A fast command-line tool that measures DNS resolver response times — clean tables, JSON output, and exit codes made for scripting.',
+    tags: ['Python', 'CLI', 'DNS'],
+    liveUrl: 'https://dnstest-dyh.pages.dev',
     codeUrl: 'https://github.com/brycejensen540/DNStest',
     tone: 'teal',
     featured: true,
   },
   {
-    title: 'deleteOldTweets',
+    title: 'Pulse Geometry',
     description:
-      'A script to get rid of old Twitter history.',
-    tags: ['JavaScript', 'Scripting'],
-    liveUrl: '#',
-    codeUrl: 'https://github.com/brycejensen540/deleteOldTweets',
+      'A psychedelic, trance-like geometric visualizer — glowing shapes that pulse and morph in real time, with a drag-to-spin camera and a 5-minute inactivity freeze.',
+    tags: ['TypeScript', 'Vite', 'Canvas'],
+    liveUrl: 'https://pulse-geometry.pages.dev',
+    codeUrl: 'https://github.com/brycejensen540/shapes',
     tone: 'orange',
-    featured: false,
-  },
-  {
-    title: 'ReadCSVfile',
-    description:
-      'A simple Java program to read and parse CSV files.',
-    tags: ['Java', 'CSV'],
-    liveUrl: '#',
-    codeUrl: 'https://github.com/brycejensen540/ReadCSVfile',
-    tone: 'teal',
-    featured: false,
-  },
-  {
-    title: 'BlockchainExample',
-    description:
-      'A simple example of how a blockchain can be implemented in Java.',
-    tags: ['Java', 'Blockchain'],
-    liveUrl: '#',
-    codeUrl: 'https://github.com/brycejensen540/BlockchainExample',
-    tone: 'orange',
-    featured: false,
+    featured: true,
   },
 ];
