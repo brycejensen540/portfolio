@@ -116,6 +116,29 @@ npm run build
 wrangler pages deploy dist --project-name pulse-geometry
 ```
 
+### Option C — GitHub Actions (auto-deploy on every push)
+
+The repo ships a workflow (`.github/workflows/deploy.yml`) that builds and
+deploys to Cloudflare Pages on **every push to `main`**. Live site:
+**https://pulse-geometry.pages.dev**
+
+**One-time setup** (the only manual step is creating the API token):
+
+1. Create a Cloudflare API token: dashboard → **My Profile → API Tokens →
+   Create Token → "Edit Cloudflare Workers"** template (or a custom token)
+   with *Account: Cloudflare Pages: Edit* and *Account: Workers Scripts: Edit*.
+2. Add it as a repo secret so the workflow can deploy:
+
+   ```bash
+   gh secret set CLOUDFLARE_API_TOKEN --repo brycejensen540/shapes
+   ```
+
+3. Push to `main` — the workflow builds and deploys automatically. Watch it
+   under **Actions** on GitHub; deployments appear in the Pages project.
+
+> The workflow only runs once the secret exists — until then pushes will show
+> a failed "Deploy to Cloudflare Pages" check, which is expected.
+
 ### Any other static host
 
 Because `vite.config.ts` sets `base: './'`, the built `dist/` folder is
