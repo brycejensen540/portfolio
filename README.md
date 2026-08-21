@@ -80,3 +80,29 @@ NPM=.tooling/node-v24.19.0-win-x64/node_modules/npm/bin/npm-cli.js
 - The fade-in only applies when JavaScript runs and respects
   `prefers-reduced-motion`.
 - No analytics, contact forms, or build-time assets are included yet.
+
+## Auto-deploy to Cloudflare Pages
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the site and
+pushes it to Cloudflare Pages on **every push to `main`**. Live site:
+**https://bryce-jensen-portfolio.pages.dev**
+
+The build command (`npm run build`) and output directory (`dist`) are recorded
+in `wrangler.toml` at the repo root and mirrored in the workflow.
+
+**One-time setup** (the only manual step is creating the API token):
+
+1. Create a Cloudflare API token: dashboard → **My Profile → API Tokens →
+   Create Token → "Edit Cloudflare Workers"** template (or a custom token)
+   with *Account: Cloudflare Pages: Edit* and *Account: Workers Scripts: Edit*.
+2. Add it as a repo secret so the workflow can deploy:
+
+   ```bash
+   gh secret set CLOUDFLARE_API_TOKEN --repo brycejensen540/portfolio
+   ```
+
+3. Push to `main` — the workflow builds and deploys automatically. Watch it
+   under **Actions** on GitHub; deployments appear in the Pages project.
+
+> The workflow only runs once the secret exists — until then pushes will show
+> a failed "Deploy to Cloudflare Pages" check, which is expected.

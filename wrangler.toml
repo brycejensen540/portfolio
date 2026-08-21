@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for the portfolio.
+# `pages_build_output_dir` tells the Pages Git integration (and the deploy
+# workflow in .github/workflows/deploy.yml) where the build output lives.
+name = "bryce-jensen-portfolio"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
