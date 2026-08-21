@@ -76,6 +76,32 @@ export PATH="$PWD/.tooling/node-v24.19.0-win-x64:$PATH"
 
 Update `site` in `astro.config.mjs` before deploying if the domain changes.
 
+## Auto-deploy to Cloudflare Pages
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the site and
+pushes it to Cloudflare Pages on **every push to `main`**. Demo site:
+**https://apollo-professional.pages.dev**
+
+The build command (`npm run build`) and output directory (`dist`) are recorded
+in `wrangler.toml` at the repo root and mirrored in the workflow.
+
+**One-time setup** (the only manual step is creating the API token):
+
+1. Create a Cloudflare API token: dashboard → **My Profile → API Tokens →
+   Create Token → "Edit Cloudflare Workers"** template (or a custom token)
+   with *Account: Cloudflare Pages: Edit* and *Account: Workers Scripts: Edit*.
+2. Add it as a repo secret so the workflow can deploy:
+
+   ```bash
+   gh secret set CLOUDFLARE_API_TOKEN --repo brycejensen540/apollo-professional
+   ```
+
+3. Push to `main` — the workflow builds and deploys automatically. Watch it
+   under **Actions** on GitHub; deployments appear in the Pages project.
+
+> The workflow only runs once the secret exists — until then pushes will show
+> a failed "Deploy to Cloudflare Pages" check, which is expected.
+
 ## Notes
 
 - The contact form is intentionally static: submitting composes a pre-filled email to the

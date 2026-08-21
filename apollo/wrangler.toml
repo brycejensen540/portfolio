@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for the Apollo Professional site.
+# `pages_build_output_dir` tells the Pages Git integration (and the deploy
+# workflow in .github/workflows/deploy.yml) where the build output lives.
+name = "apollo-professional"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
