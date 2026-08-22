@@ -49,6 +49,8 @@ export type AreaPage = {
   image: string;
 };
 
+import { images } from './images';
+
 export const areaPages: AreaPage[] = [
   {
     slug: 'chicago',
@@ -57,7 +59,7 @@ export const areaPages: AreaPage[] = [
       'Window washing, exterior cleaning, and pressure washing for Chicago, IL homes and businesses. Lakefront and urban conditions handled by Apollo Professional. Call (773) 600-1308.',
     eyebrow: 'Service Area',
     title: 'Restore Clarity With Window Washing in Chicago',
-    image: '/images/chicago.webp',
+    image: images.areas.chicago,
     intro:
       'Chicago’s lakefront location and urban environment create unique challenges for property owners. Salt spray from Lake Michigan mixes with city dust, diesel exhaust, and seasonal pollen to leave windows streaked and hazy within weeks of cleaning. Winter freeze-thaw cycles deposit mineral residue on glass, while spring storms coat skylights and upper-story windows with grime that is difficult to reach. Apollo Professional addresses these specific conditions with interior and exterior window cleaning tailored to the demands of Chicago properties.',
     body: [
@@ -73,7 +75,7 @@ export const areaPages: AreaPage[] = [
       'Professional cleaning services in Oak Park, IL — window cleaning, gutter cleaning, power washing, and more. First-time customer discounts available. Call (773) 600-1308.',
     eyebrow: 'Service Area',
     title: 'Local Cleaning Done Right in Oak Park',
-    image: '/images/window-large.webp',
+    image: images.areas['oak-park'],
     intro:
       'Every home in Oak Park, IL deserves to shine. Streaky windows, clogged gutters, and dusty screens can quickly dull even the most beautiful property. The challenge is not only keeping up with dirt and debris — it is finding dependable cleaning services that bring care, consistency, and detail to every visit. At Apollo Professional, we deliver that care with every job. Whether you live near Scoville Park or along Lake Street, we bring clarity and freshness back to your home.',
     body: [
@@ -127,7 +129,7 @@ export const areaPages: AreaPage[] = [
       'Trusted cleaning services in La Grange, IL — window cleaning, gutter cleaning, screen care, and power washing. Seasonal discounts for first-time customers. Call (773) 600-1308.',
     eyebrow: 'Service Area',
     title: 'Local Cleaning You Can Count On in La Grange',
-    image: '/images/lagrange.webp',
+    image: images.areas['la-grange'],
     intro:
       'Your home in La Grange, IL deserves to look its best all year long. Dust, grime, and water stains can take away the charm of your windows and outdoor spaces, and finding reliable cleaning services that deliver real results can feel challenging. At Apollo Professional, we bring care and detail to every job. From historic homes near La Grange Road to family houses close to Waiola Park, we treat every property like our own.',
     body: [
@@ -177,7 +179,7 @@ export const areaPages: AreaPage[] = [
       'Interior and exterior window washing for Hinsdale, IL homes and businesses. Hard water stain removal and seasonal maintenance. Call Apollo Professional at (773) 600-1308.',
     eyebrow: 'Service Area',
     title: 'Crystal-Clear Windows for Hinsdale Homes',
-    image: '/images/hinsdale.webp',
+    image: images.areas.hinsdale,
     intro:
       'If you live in Hinsdale, IL, you know how quickly windows lose their sparkle. Illinois hard water leaves stubborn mineral streaks on glass, especially on south- and west-facing windows where afternoon sun bakes the buildup into place. Spring pollen from local trees coats sills and frames, and summer humidity traps dust against the glass. We specialize in interior and exterior window cleaning that restores clarity and curb appeal, using methods designed for the challenges Hinsdale homeowners face year-round.',
     body: [

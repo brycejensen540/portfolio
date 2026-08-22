@@ -1,0 +1,12 @@
+---
+// Thin, slow-moving water drips along the far edges of the viewport.
+// Desktop only (hidden below lg) and disabled for reduced-motion users
+// via the CSS in global.css. pointer-events none, behind content.
+---
+
+<div class="pointer-events-none fixed inset-0 z-0 hidden lg:block" aria-hidden="true">
+  <span class="drip" style="left: 14px; animation-delay: 0s;"></span>
+  <span class="drip" style="left: 28px; animation-delay: 4.5s;"></span>
+  <span class="drip" style="right: 14px; animation-delay: 2.2s;"></span>
+  <span class="drip" style="right: 28px; animation-delay: 6.5s;"></span>
+</div>

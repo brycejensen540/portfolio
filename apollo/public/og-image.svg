@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#081A36" />
-      <stop offset="1" stop-color="#12305F" />
+      <stop offset="0" stop-color="#1A1A2E" />
+      <stop offset="1" stop-color="#2A2A3E" />
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
   <!-- Brand sun mark (the company's Apollo icon) -->
-  <circle cx="156" cy="146" r="36" fill="#FDAD05" />
-  <path d="M156 96v-14M156 196v-14M106 146H92M220 146h-14M118 108l-10-10M204 194l-10-10M194 108l10-10M108 194l10-10" stroke="#FDAD05" stroke-width="10" stroke-linecap="round" />
-  <circle cx="156" cy="146" r="17" fill="#D03B02" />
+  <circle cx="156" cy="146" r="36" fill="#4A8FA8" />
+  <path d="M156 96v-14M156 196v-14M106 146H92M220 146h-14M118 108l-10-10M204 194l-10-10M194 108l10-10M108 194l10-10" stroke="#4A8FA8" stroke-width="10" stroke-linecap="round" />
+  <circle cx="156" cy="146" r="17" fill="#2E7A92" />
   <text x="216" y="166" font-family="sans-serif" font-size="56" font-weight="700" fill="#ffffff">Apollo Professional</text>
   <text x="120" y="280" font-family="sans-serif" font-size="76" font-weight="800" fill="#ffffff">Detail-Focused.</text>
-  <text x="120" y="370" font-family="sans-serif" font-size="76" font-weight="800" fill="#FDAD05">Every Single Time.</text>
-  <text x="120" y="450" font-family="sans-serif" font-size="34" fill="#c7d6ee">Window cleaning · Gutters · Screens · Power washing</text>
-  <text x="120" y="520" font-family="sans-serif" font-size="28" fill="#8fb3d9">Chicago, IL · Serving the surrounding suburbs · (773) 600-1308</text>
+  <text x="120" y="370" font-family="sans-serif" font-size="76" font-weight="800" fill="#4A8FA8">Every Single Time.</text>
+  <text x="120" y="450" font-family="sans-serif" font-size="34" fill="#9CA3AF">Window cleaning · Gutters · Screens · Power washing</text>
+  <text x="120" y="520" font-family="sans-serif" font-size="28" fill="#8B95A2">Chicago, IL · Serving the surrounding suburbs · (773) 600-1308</text>
 </svg>

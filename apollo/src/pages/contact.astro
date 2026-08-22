@@ -21,41 +21,52 @@ const schema = JSON.stringify({
     address: { '@type': 'PostalAddress', addressLocality: 'Chicago', addressRegion: 'IL', addressCountry: 'US' },
   },
 });
+
+const inputClass =
+  'w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30';
 ---
 
 <BaseLayout title={title} description={description} schema={schema}>
   <!-- Page header -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">Let’s Connect</p>
-      <h1 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+  <section class="relative overflow-hidden bg-surface">
+    <div
+      class="pointer-events-none absolute -right-40 -top-40 h-[26rem] w-[26rem] rounded-full opacity-30 blur-3xl"
+      style="background: radial-gradient(closest-side, rgba(74, 143, 168, 0.2), transparent 70%);"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 lg:px-8 lg:pb-28 lg:pt-32">
+      <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+        <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+        Let’s Connect
+      </p>
+      <h1 class="mt-6 font-display text-5xl font-semibold tracking-tight text-ink sm:text-6xl">
         Request Your Cleaning Quote
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+      <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft">
         Reach out now for professional cleaning solutions with unmatched detail and reliability. We’re ready to help you.
       </p>
     </div>
   </section>
 
-  <section class="bg-white py-20 lg:py-24">
-    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:px-8">
+  <section class="bg-white py-24 lg:py-32">
+    <div class="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:px-8">
       <!-- Form -->
       <div class="reveal">
-        <h2 class="font-display text-2xl font-bold text-navy">Tell Us About Your Property</h2>
-        <p class="mt-2 text-sm leading-relaxed text-slate-500">
+        <h2 class="font-display text-3xl font-semibold tracking-tight text-ink">Tell Us About Your Property</h2>
+        <p class="mt-3 text-sm leading-relaxed text-ink-soft">
           Fill out the form and we’ll get back to you with a transparent estimate. Prefer to talk? Call{' '}
-          <a href={site.phoneHref} class="font-semibold text-brand hover:text-brand-deep">{site.phone}</a>.
+          <a href={site.phoneHref} class="font-semibold text-accent hover:text-accent-deep">{site.phone}</a>.
         </p>
 
         <form
           id="quote-form"
-          class="mt-8 space-y-5"
+          class="mt-10 space-y-6"
           data-email={site.email}
           data-testid="quote-form"
         >
-          <div class="grid gap-5 sm:grid-cols-2">
+          <div class="grid gap-6 sm:grid-cols-2">
             <div>
-              <label for="name" class="mb-1.5 block text-sm font-semibold text-navy">Full name</label>
+              <label for="name" class="mb-2 block text-sm font-semibold text-ink">Full name</label>
               <input
                 id="name"
                 name="name"
@@ -63,11 +74,11 @@ const schema = JSON.stringify({
                 required
                 autocomplete="name"
                 placeholder="Jane Doe"
-                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+                class={inputClass}
               />
             </div>
             <div>
-              <label for="phone" class="mb-1.5 block text-sm font-semibold text-navy">Phone number</label>
+              <label for="phone" class="mb-2 block text-sm font-semibold text-ink">Phone number</label>
               <input
                 id="phone"
                 name="phone"
@@ -75,29 +86,29 @@ const schema = JSON.stringify({
                 required
                 autocomplete="tel"
                 placeholder="(773) 555-0123"
-                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+                class={inputClass}
               />
             </div>
           </div>
 
-          <div class="grid gap-5 sm:grid-cols-2">
+          <div class="grid gap-6 sm:grid-cols-2">
             <div>
-              <label for="email" class="mb-1.5 block text-sm font-semibold text-navy">Email (optional)</label>
+              <label for="email" class="mb-2 block text-sm font-semibold text-ink">Email (optional)</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 autocomplete="email"
                 placeholder="you@example.com"
-                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+                class={inputClass}
               />
             </div>
             <div>
-              <label for="service" class="mb-1.5 block text-sm font-semibold text-navy">Service needed</label>
+              <label for="service" class="mb-2 block text-sm font-semibold text-ink">Service needed</label>
               <select
                 id="service"
                 name="service"
-                class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+                class={inputClass}
               >
                 <option value="Window Cleaning">Window Cleaning</option>
                 <option value="Gutter Cleaning">Gutter Cleaning</option>
@@ -110,90 +121,90 @@ const schema = JSON.stringify({
           </div>
 
           <div>
-            <label for="message" class="mb-1.5 block text-sm font-semibold text-navy">Message</label>
+            <label for="message" class="mb-2 block text-sm font-semibold text-ink">Message</label>
             <textarea
               id="message"
               name="message"
               rows="5"
               placeholder="Tell us about your property, what needs cleaning, and when works best for you."
-              class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+              class={inputClass}
             ></textarea>
           </div>
 
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button type="submit" class="btn-primary px-7 py-3 text-base">Request a Quote</button>
-            <p class="text-xs leading-relaxed text-slate-400">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <button type="submit" class="btn-primary px-8 py-3.5 text-base">Request a Quote</button>
+            <p class="text-xs leading-relaxed text-ink-faint">
               Submitting opens your email app with the details pre-filled. For the fastest response, call{' '}
-              <a href={site.phoneHref} class="font-semibold text-brand hover:text-brand-deep">{site.phone}</a>.
+              <a href={site.phoneHref} class="font-semibold text-accent hover:text-accent-deep">{site.phone}</a>.
             </p>
           </div>
         </form>
       </div>
 
       <!-- Contact details -->
-      <div class="reveal space-y-6">
-        <div class="rounded-2xl border border-slate-200 bg-navy-faint p-7 shadow-soft">
-          <h2 class="font-display text-xl font-bold text-navy">Contact Details</h2>
-          <ul class="mt-5 space-y-4 text-sm">
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+      <div class="reveal space-y-8">
+        <div class="rounded-2xl bg-surface-alt p-9 ring-1 ring-ink/8">
+          <h2 class="font-display text-2xl font-semibold text-ink">Contact Details</h2>
+          <ul class="mt-6 space-y-5 text-sm">
+            <li class="flex items-start gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
               </svg>
               <div>
-                <p class="font-semibold text-navy">Phone</p>
-                <a href={site.phoneHref} class="text-slate-600 hover:text-brand-deep">{site.phone}</a>
+                <p class="font-semibold text-ink">Phone</p>
+                <a href={site.phoneHref} class="text-ink-soft hover:text-accent-deep">{site.phone}</a>
               </div>
             </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M3 5h14v10H3V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                <path d="M3 6l7 5 7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            <li class="flex items-start gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 5h14v10H3V5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="M3 6l7 5 7-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <div>
-                <p class="font-semibold text-navy">Email</p>
-                <a href={site.emailHref} class="text-slate-600 hover:text-brand-deep">{site.email}</a>
+                <p class="font-semibold text-ink">Email</p>
+                <a href={site.emailHref} class="text-ink-soft hover:text-accent-deep">{site.email}</a>
               </div>
             </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
-                <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
+            <li class="flex items-start gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.6" />
               </svg>
               <div>
-                <p class="font-semibold text-navy">Location</p>
-                <p class="text-slate-600">{site.address} · serving {site.radius}</p>
+                <p class="font-semibold text-ink">Location</p>
+                <p class="text-ink-soft">{site.address} · serving {site.radius}</p>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Apollo+Professional+Chicago+IL"
                   target="_blank"
                   rel="noopener"
-                  class="mt-1 inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-deep"
+                  class="mt-1 inline-flex items-center gap-1 font-semibold text-accent hover:text-accent-deep"
                 >
                   Get directions
                   <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                    <path d="M7 4h9v9M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7 4h9v9M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </a>
               </div>
             </li>
-            <li class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8" />
-                <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <li class="flex items-start gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.6" />
+                <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
               </svg>
               <div>
-                <p class="font-semibold text-navy">Hours</p>
-                <p class="text-slate-600">{site.hours.weekdays}<br />{site.hours.weekends}</p>
+                <p class="font-semibold text-ink">Hours</p>
+                <p class="text-ink-soft">{site.hours.weekdays}<br />{site.hours.weekends}</p>
               </div>
             </li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-soft">
-          <h2 class="font-display text-xl font-bold text-navy">Our Services</h2>
-          <ul class="mt-4 space-y-2.5">
+        <div class="rounded-2xl bg-white p-9 shadow-soft ring-1 ring-ink/5">
+          <h2 class="font-display text-2xl font-semibold text-ink">Our Services</h2>
+          <ul class="mt-5 space-y-3">
             {services.map((s) => (
               <li>
-                <a href={`/services/${s.slug}/`} class="text-sm font-medium text-slate-600 hover:text-brand-deep">
+                <a href={`/services/${s.slug}/`} class="text-sm font-medium text-ink-soft transition-colors hover:text-accent-deep">
                   {s.name}
                 </a>
               </li>
@@ -205,26 +216,26 @@ const schema = JSON.stringify({
   </section>
 
   <!-- Quick area list -->
-  <section class="border-t border-slate-200 bg-navy-faint py-14">
+  <section class="border-t border-ink/8 bg-surface-alt py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center font-display text-2xl font-bold text-navy">We Serve the Greater Chicago Area</h2>
-      <ul class="mt-8 flex flex-wrap justify-center gap-2.5">
+      <h2 class="text-center font-display text-3xl font-semibold tracking-tight text-ink">We Serve the Greater Chicago Area</h2>
+      <ul class="mt-10 flex flex-wrap justify-center gap-3">
         {allAreas.map((area) => (
           <li>
             {area.slug ? (
-              <a href={`/areas/${area.slug}/`} class="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-navy transition-colors hover:border-brand hover:text-brand-deep">
+              <a href={`/areas/${area.slug}/`} class="rounded-xl border border-ink/15 bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent-deep">
                 {area.name}
               </a>
             ) : (
-              <span class="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600">
+              <span class="rounded-xl border border-ink/8 bg-white px-5 py-2.5 text-sm font-medium text-ink-faint">
                 {area.name}
               </span>
             )}
           </li>
         ))}
       </ul>
-      <div class="mt-8 text-center">
-        <a href="/areas/" class="text-sm font-semibold text-brand hover:text-brand-deep">View all service areas</a>
+      <div class="mt-10 text-center">
+        <a href="/areas/" class="text-sm font-semibold text-accent hover:text-accent-deep">View all service areas</a>
       </div>
     </div>
   </section>

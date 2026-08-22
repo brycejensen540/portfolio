@@ -4,19 +4,20 @@ import { site } from '../data/site';
 import { services } from '../data/services';
 import { allAreas } from '../data/areas';
 import { reviews } from '../data/reviews';
+import { images } from '../data/images';
 import ServiceCard from '../components/ServiceCard.astro';
 import ReviewCard from '../components/ReviewCard.astro';
 import CtaBand from '../components/CtaBand.astro';
 import MediaImage from '../components/MediaImage.astro';
+import Sparkles from '../components/Sparkles.astro';
+import Bubbles from '../components/Bubbles.astro';
 
 const title = 'Apollo Professional | Window & Exterior Cleaning in Chicago, IL';
 const description =
   'We don’t just clean windows so they look clean — we clean them so they are clean. Detail-focused window cleaning, gutters, screens, and pressure washing in Chicago, IL and the surrounding suburbs. Call (773) 600-1308.';
 
-const featured = services.filter((s) => s.featured);
 const homeReviews = reviews.slice(0, 6);
 
-// LocalBusiness schema — gives search engines structured trust signals.
 const schema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
@@ -58,265 +59,226 @@ const schema = JSON.stringify({
 
 <BaseLayout title={title} description={description} schema={schema}>
   <!-- ============ Hero ============ -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-mid">
-    <!-- Subtle geometric grid, very restrained. -->
+  <section class="relative overflow-hidden bg-surface">
     <div
-      class="pointer-events-none absolute inset-0 opacity-[0.07]"
-      style="background-image: linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px); background-size: 44px 44px;"
+      class="pointer-events-none absolute -right-48 -top-48 h-[36rem] w-[36rem] rounded-full opacity-30 blur-3xl"
+      style="background: radial-gradient(closest-side, rgba(74, 143, 168, 0.2), transparent 70%);"
       aria-hidden="true"
     ></div>
-    <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-28 lg:px-8">
+    <div
+      class="pointer-events-none absolute -bottom-56 -left-40 h-[30rem] w-[30rem] rounded-full opacity-20 blur-3xl"
+      style="background: radial-gradient(closest-side, rgba(74, 143, 168, 0.15), transparent 70%);"
+      aria-hidden="true"
+    ></div>
+
+    <Bubbles />
+    <Sparkles />
+
+    <div class="relative mx-auto grid max-w-7xl items-center gap-16 px-4 pb-24 pt-20 sm:px-6 lg:grid-cols-[minmax(0,11fr)_minmax(0,10fr)] lg:gap-20 lg:px-8 lg:pb-32 lg:pt-28">
       <div>
-        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-bright">
-          <span class="h-1.5 w-1.5 rounded-full bg-brand-bright" aria-hidden="true"></span>
+        <p class="mb-7 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
           Chicago, IL · Serving the surrounding suburbs
         </p>
-        <h1 class="font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Detail-Focused<br /><span class="text-brand-bright">Every Single Time</span>
+        <h1 class="font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[4.25rem]">
+          Detail-Focused<br />
+          <span class="italic text-accent">Every Single Time</span>
         </h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
           We provide top-quality cleaning solutions that keep your property looking its best — completed thoroughly,
           on time, and with unmatched attention to detail. {site.tagline}
         </p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/contact/#quote" class="btn-primary px-7 py-3.5 text-base">Get a Free Quote</a>
-          <a href={site.phoneHref} class="btn-outline-light px-7 py-3.5 text-base">
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="/contact/#quote" class="btn-primary px-8 py-4 text-base">Get a Free Quote</a>
+          <a href={site.phoneHref} class="btn-outline px-8 py-4 text-base">
             <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M3.5 4.5c0-1.1.9-2 2-2h2l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v2c0 1.1-.9 2-2 2A12.5 12.5 0 013.5 4.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
             </svg>
             Call {site.phone}
           </a>
         </div>
-        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-white/70">
-          <span class="flex items-center gap-2">
-            <span class="flex text-brand-bright" aria-label="Rated 5 out of 5 stars">
+        <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <span class="flex items-center gap-2.5 text-sm text-ink-soft">
+            <span class="flex text-accent" aria-label="Rated 5 out of 5 stars">
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
               <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
             </span>
-            <strong class="text-white">{site.rating.score}/5.00</strong> · {site.rating.label}
+            <strong class="text-ink">{site.rating.score}/5.00</strong> · {site.rating.label}
           </span>
-          <span>Serving {site.radius}</span>
+          <span class="hidden h-8 w-px bg-ink/10 sm:block" aria-hidden="true"></span>
+          <span class="text-sm text-ink-soft">Serving {site.radius}</span>
+        </div>
+        <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-ink/8 pt-8">
+          <p class="text-xs font-semibold uppercase tracking-widest text-ink-faint">Trusted &amp; reviewed on</p>
+          <img src="/badges/Angi-175x100-Color.svg" alt="Angi" class="h-7 w-auto opacity-50" loading="lazy" />
+          <img src="/badges/Home-Advisor-Screened-and-Approved-175x100-Color.svg" alt="Home Advisor — Screened and Approved" class="h-7 w-auto opacity-50" loading="lazy" />
+          <img src="/badges/Home-Advisor-Top-Rated-175x100-Color.svg" alt="Home Advisor — Top Rated" class="h-7 w-auto opacity-50" loading="lazy" />
+          <img src="/badges/Yelp-New-Logo-175x100-Color.svg" alt="Yelp" class="h-7 w-auto opacity-50" loading="lazy" />
         </div>
       </div>
 
-      <div class="reveal hidden lg:block">
-        <MediaImage topic="sparkle" image="/images/hero.jpg" label="Crystal-clear windows — a sky-lit glass ceiling" class="aspect-[4/3] max-w-md ml-auto shadow-glow" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ Trust bar ============ -->
-  <section class="border-b border-slate-200 bg-white" aria-label="Quick facts">
-    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
-      {[
-        { value: `${site.rating.score}/5.0`, label: 'Google rating' },
-        { value: site.rating.count, label: 'Happy customers' },
-        { value: '30 mi', label: 'Service radius' },
-        { value: '7 days', label: 'Open every week' },
-      ].map((stat) => (
-        <div class="text-center">
-          <p class="font-display text-3xl font-extrabold text-navy">{stat.value}</p>
-          <p class="mt-1 text-sm text-slate-500">{stat.label}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ============ Trusted badges ============ -->
-  <section class="border-b border-slate-200 bg-white" aria-label="Trusted review platforms">
-    <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <p class="text-center text-xs font-semibold uppercase tracking-wider text-slate-400">
-        Trusted &amp; reviewed on
-      </p>
-      <div class="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-        <img src="/badges/Angi-175x100-Color.svg" alt="Angi" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
-        <img src="/badges/Home-Advisor-Elite-Service-175x100-Color.svg" alt="Home Advisor — Elite Service" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
-        <img src="/badges/Home-Advisor-Screened-and-Approved-175x100-Color.svg" alt="Home Advisor — Screened and Approved" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
-        <img src="/badges/Home-Advisor-Top-Rated-175x100-Color.svg" alt="Home Advisor — Top Rated" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
-        <img src="/badges/Yelp-New-Logo-175x100-Color.svg" alt="Yelp" class="h-8 w-auto opacity-70 transition-opacity hover:opacity-100" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ About teaser ============ -->
-  <section class="bg-navy-faint py-20 lg:py-24">
-    <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div class="reveal">
-        <MediaImage topic="window" image="/images/window-large.webp" label="Spotless windows, every time" class="aspect-[4/3]" />
-      </div>
-      <div class="reveal">
-        <p class="text-sm font-bold uppercase tracking-wider text-brand">Detail-Focused. Client-Driven.</p>
-        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
-          We Don’t Just Clean Windows So They Look Clean — We Clean Them So They Are Clean.
-        </h2>
-        <p class="mt-5 leading-relaxed text-slate-600">
-          We don’t just clean windows so they look clean — we clean them so they <em>are</em> clean. Apollo Professional
-          prioritizes the quality, consistency, and meticulous attention to detail that most window cleaning companies
-          overlook. We work directly with each client to deliver the exact level of clean they want, treating every
-          window as more than just glass.
+      <!-- Hero photo -->
+      <div class="reveal relative">
+        <div class="absolute -right-4 -top-4 hidden h-full w-full rounded-2xl border border-accent/20 lg:block" aria-hidden="true"></div>
+        <MediaImage image={images.hero} label="Window cleaning in natural light" class="aspect-[4/5] shadow-soft" />
+        <p class="mt-5 text-center text-xs font-semibold uppercase tracking-widest text-ink-faint">
+          The detail behind the shine
         </p>
-        <p class="mt-4 leading-relaxed text-slate-600">
-          When desired, we go further — carefully removing paint, silicone, adhesive residue, and thoroughly cleaning
-          tracks — restoring windows to a condition many homeowners haven’t seen in years. In addition to precision
-          window cleaning, we offer professional gutter cleaning and pressure washing services that refresh exteriors
-          and outdoor living spaces, helping homes look new again.
-        </p>
-        <p class="mt-4 font-display font-bold text-navy">Detail-focused. Client-driven. Crystal-Clear.</p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/about/" class="btn-primary px-6 py-3 text-sm">Know More About Us</a>
-          <a href={site.phoneHref} class="btn-outline-dark px-6 py-3 text-sm">Call Now</a>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ Services grid ============ -->
-  <section class="bg-white py-20 lg:py-24">
+  <!-- ============ Services ============ -->
+  <section class="bg-white py-24 lg:py-36">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-brand">What We Do</p>
-        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
-          Professional Cleaning Services for Every Surface
-        </h2>
-        <p class="mt-4 leading-relaxed text-slate-600">
+      <div class="reveal grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-end">
+        <div>
+          <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+            <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+            What We Do
+          </p>
+          <h2 class="mt-5 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+            Professional Cleaning Services for Every Surface
+          </h2>
+        </div>
+        <p class="max-w-md text-base leading-relaxed text-ink-soft lg:pb-2">
           From sparkling windows to clear gutters, we handle the details so your property looks its absolute best.
         </p>
       </div>
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, i) => (
           <div class="reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
-            <ServiceCard service={service} index={i + 1} />
+            <ServiceCard service={service} />
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ============ Featured services ============ -->
-  <section class="bg-navy-faint py-20 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="reveal max-w-2xl">
-        <p class="text-sm font-bold uppercase tracking-wider text-brand">Featured Services</p>
-        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
-          The Services Our Customers Rely On Most
-        </h2>
+  <!-- ============ Philosophy ============ -->
+  <section class="relative overflow-hidden bg-ink py-24 lg:py-36">
+    <div
+      class="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full opacity-30 blur-3xl"
+      style="background: radial-gradient(closest-side, rgba(74, 143, 168, 0.25), transparent 70%);"
+      aria-hidden="true"
+    ></div>
+    <Sparkles
+      items={[
+        { top: '18%', right: '12%', size: 7, delay: 0, tone: 'white' },
+        { top: '42%', left: '48%', size: 5, delay: 2.1, tone: 'white' },
+        { bottom: '20%', right: '24%', size: 6, delay: 3.4, tone: 'white' },
+      ]}
+    />
+    <div class="relative mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:gap-24 lg:px-8">
+      <div class="reveal order-2 lg:order-1">
+        <p class="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <span class="h-px w-10 bg-accent/40" aria-hidden="true"></span>
+          Our Philosophy
+        </p>
+        <blockquote class="mt-6 font-display text-3xl font-medium leading-snug text-white sm:text-4xl">
+          “We don’t just clean windows so they look clean — we clean them so they <em class="italic text-accent">are</em> clean.”
+        </blockquote>
+        <p class="mt-7 max-w-xl leading-relaxed text-white/60">
+          Apollo Professional prioritizes the quality, consistency, and meticulous attention to detail that most
+          window cleaning companies overlook. We work directly with each client to deliver the exact level of clean
+          they want — treating every window as more than just glass.
+        </p>
+        <p class="mt-4 max-w-xl leading-relaxed text-white/60">
+          When desired, we go further — carefully removing paint, silicone, adhesive residue, and thoroughly cleaning
+          tracks — restoring windows to a condition many homeowners haven’t seen in years.
+        </p>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="/about/" class="btn-outline-light px-7 py-3.5 text-sm">Know More About Us</a>
+          <a href={site.phoneHref} class="btn-outline-light px-7 py-3.5 text-sm">Call Now</a>
+        </div>
       </div>
-      <div class="mt-12 space-y-16">
-        {featured.map((service, i) => (
-          <div class="reveal grid items-center gap-10 lg:grid-cols-2">
-            <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
-              <MediaImage topic={service.imageTopic} image={service.image} label={service.name} class="aspect-[4/3]" />
-            </div>
-            <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
-              <h3 class="font-display text-2xl font-bold tracking-tight text-navy sm:text-3xl">{service.name}</h3>
-              <p class="mt-4 leading-relaxed text-slate-600">{service.shortDescription}</p>
-              <ul class="mt-6 space-y-3">
-                {service.benefits.slice(0, 4).map((benefit) => (
-                  <li class="flex items-start gap-3 text-sm text-slate-700">
-                    <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                      <path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-              <a href={`/services/${service.slug}/`} class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-deep">
-                Read more
-                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        ))}
+      <div class="reveal order-1 lg:order-2">
+        <MediaImage image={images.about.modern} label="Modern glass architecture in natural light" class="aspect-[4/5] shadow-soft" />
       </div>
     </div>
   </section>
 
   <!-- ============ Service areas ============ -->
-  <section class="bg-white py-20 lg:py-24">
+  <section class="bg-surface py-24 lg:py-36">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wider text-brand">Where We Work</p>
-        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+        <p class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+          Where We Work
+          <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+        </p>
+        <h2 class="mt-5 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
           Proudly Serving the Greater Chicago Area
         </h2>
-        <p class="mt-4 leading-relaxed text-slate-600">
+        <p class="mt-6 text-base leading-relaxed text-ink-soft">
           Based in Chicago, we serve homes and businesses {site.radius}.
         </p>
       </div>
-      <ul class="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-        {allAreas.map((area) => (
-          <li>
-            {area.slug ? (
-              <a
-                href={`/areas/${area.slug}/`}
-                class="card-lift flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-navy shadow-soft"
-              >
-                <svg class="h-4 w-4 shrink-0 text-brand" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
-                  <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
-                </svg>
-                {area.name}
-              </a>
-            ) : (
-              <span class="flex items-center gap-2 rounded-xl border border-slate-200 bg-navy-faint px-4 py-3 text-sm font-medium text-slate-600">
-                <svg class="h-4 w-4 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.8" />
-                  <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.8" />
-                </svg>
-                {area.name}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
-      <div class="mt-10 text-center">
-        <a href="/areas/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-deep">
-          See all service areas
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
+      <div class="mt-16 grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
+        <div class="reveal">
+          <MediaImage image={images.areas.chicago} label="Chicago skyline and lakefront" class="aspect-[4/3] shadow-soft" />
+        </div>
+        <div class="reveal">
+          <ul class="grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
+            {allAreas.map((area) => (
+              <li>
+                {area.slug ? (
+                  <a href={`/areas/${area.slug}/`} class="group flex items-center gap-3 text-sm font-semibold text-ink transition-colors hover:text-accent">
+                    <svg class="h-4 w-4 shrink-0 text-accent" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.6" />
+                    </svg>
+                    {area.name}
+                  </a>
+                ) : (
+                  <span class="flex items-center gap-3 text-sm font-medium text-ink-faint">
+                    <svg class="h-4 w-4 shrink-0 text-ink-faint/50" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6z" stroke="currentColor" stroke-width="1.6" />
+                      <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.6" />
+                    </svg>
+                    {area.name}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <a href="/areas/" class="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-dark">
+            See all service areas
+            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ Testimonials ============ -->
-  <section class="bg-navy-faint py-20 lg:py-24">
+  <section class="bg-white py-24 lg:py-36">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-wider text-brand">Testimonials</p>
-        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+        <p class="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+          Testimonials
+          <span class="h-px w-10 bg-accent/50" aria-hidden="true"></span>
+        </p>
+        <h2 class="mt-5 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
           See Why Our Cleaning Services Shine
         </h2>
-        <p class="mt-4 text-sm text-slate-500">
-          Rated <strong class="text-navy">{site.rating.score}/5.0</strong> across {site.rating.count} Google reviews
+        <p class="mt-6 text-base text-ink-soft">
+          Rated <strong class="text-ink">{site.rating.score}/5.0</strong> across {site.rating.count} Google reviews
         </p>
       </div>
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {homeReviews.map((review, i) => (
           <div class="reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
             <ReviewCard review={review} />
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- ============ Our philosophy ============ -->
-  <section class="bg-gradient-to-br from-navy-deep via-navy to-navy-mid py-16" aria-label="Our philosophy">
-    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-wider text-brand-bright">Our Philosophy</p>
-      <blockquote class="reveal mt-4 font-display text-2xl font-bold leading-snug text-white sm:text-3xl">
-        “We don’t just clean windows so they look clean — we clean them so they <em>are</em> clean.”
-      </blockquote>
-      <p class="mt-5 text-sm font-semibold uppercase tracking-widest text-white/60">
-        Detail-focused. Client-driven. Crystal-Clear.
-      </p>
     </div>
   </section>
 

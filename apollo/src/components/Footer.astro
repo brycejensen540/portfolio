@@ -2,20 +2,22 @@
 import { site } from '../data/site';
 import { services } from '../data/services';
 import { areaPages } from '../data/areas';
+import Bubbles from './Bubbles.astro';
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-navy-deep text-white">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+<footer class="relative overflow-hidden bg-ink text-white">
+  <Bubbles />
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
     <!-- Brand -->
-    <div class="sm:col-span-2 lg:col-span-1">
+    <div>
       <a href="/" class="flex items-center" aria-label="Apollo Professional — home">
-        <img src="/images/logo-white.png" alt="Apollo Professional" class="h-9 w-auto" />
+        <img src="/images/logo-white.png" alt="Apollo Professional" class="h-10 w-auto" />
       </a>
-      <p class="mt-4 text-sm leading-relaxed text-white/65">{site.tagline}</p>
-      <div class="mt-4 flex items-center gap-2 text-sm text-white/80">
-        <span class="flex text-brand-bright" aria-hidden="true">
+      <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/55">{site.tagline}</p>
+      <div class="mt-5 flex items-center gap-2 text-sm text-white/65">
+        <span class="flex text-accent" aria-hidden="true">
           <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
           <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
           <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" /></svg>
@@ -28,47 +30,35 @@ const year = new Date().getFullYear();
 
     <!-- Services -->
     <nav aria-label="Services">
-      <h2 class="font-display text-sm font-bold uppercase tracking-wider text-white/45">Services</h2>
-      <ul class="mt-4 space-y-2.5">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-white/35">Services</h2>
+      <ul class="mt-5 space-y-3">
         {services.map((s) => (
-          <li><a href={`/services/${s.slug}/`} class="text-sm text-white/70 transition-colors hover:text-brand-bright">{s.name}</a></li>
+          <li><a href={`/services/${s.slug}/`} class="text-sm text-white/60 transition-colors hover:text-accent">{s.name}</a></li>
         ))}
       </ul>
     </nav>
 
     <!-- Service areas -->
     <nav aria-label="Service areas">
-      <h2 class="font-display text-sm font-bold uppercase tracking-wider text-white/45">Service Areas</h2>
-      <ul class="mt-4 space-y-2.5">
-        <li><a href="/areas/" class="text-sm text-white/70 transition-colors hover:text-brand-bright">All Service Areas</a></li>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-white/35">Service Areas</h2>
+      <ul class="mt-5 space-y-3">
+        <li><a href="/areas/" class="text-sm text-white/60 transition-colors hover:text-accent">All Service Areas</a></li>
         {areaPages.map((a) => (
-          <li><a href={`/areas/${a.slug}/`} class="text-sm text-white/70 transition-colors hover:text-brand-bright">{a.name}</a></li>
+          <li><a href={`/areas/${a.slug}/`} class="text-sm text-white/60 transition-colors hover:text-accent">{a.name}</a></li>
         ))}
       </ul>
     </nav>
-
-    <!-- Contact -->
-    <div>
-      <h2 class="font-display text-sm font-bold uppercase tracking-wider text-white/45">Contact</h2>
-      <ul class="mt-4 space-y-3 text-sm text-white/70">
-        <li>
-          <a href={site.phoneHref} class="font-semibold text-white transition-colors hover:text-brand-bright">{site.phone}</a>
-        </li>
-        <li>
-          <a href={site.emailHref} class="transition-colors hover:text-brand-bright">{site.email}</a>
-        </li>
-        <li>{site.address} · serving {site.radius}</li>
-        <li class="pt-1 text-white/50">
-          {site.hours.weekdays}<br />{site.hours.weekends}
-        </li>
-      </ul>
-    </div>
   </div>
 
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-white/45 sm:flex-row sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-8 text-center text-xs text-white/40 sm:px-6 md:flex-row md:text-left lg:px-8">
       <p>© {year} {site.name}. All rights reserved.</p>
-      <p>Detail-focused. Client-driven. Crystal-Clear.</p>
+      <div class="flex flex-col items-center gap-1.5 md:flex-row md:gap-6">
+        <a href={site.phoneHref} class="transition-colors hover:text-accent">{site.phone}</a>
+        <a href={site.emailHref} class="transition-colors hover:text-accent">{site.email}</a>
+        <span>{site.hours.weekdays} · {site.hours.weekends}</span>
+      </div>
+      <p>{site.tagline}</p>
     </div>
   </div>
 </footer>

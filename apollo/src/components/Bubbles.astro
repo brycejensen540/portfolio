@@ -1,0 +1,24 @@
+---
+// A few very low-opacity bubbles drifting up through a section.
+// Place inside a `relative overflow-hidden` section (hero, footer).
+// Sizes 8–24px, long staggered durations, minimal opacity.
+
+const bubbles = [
+  { bottom: '6%', left: '5%', size: 12, dur: 20, delay: 0 },
+  { bottom: '12%', left: '20%', size: 8, dur: 24, delay: 4 },
+  { bottom: '4%', left: '38%', size: 16, dur: 18, delay: 7 },
+  { bottom: '10%', left: '55%', size: 9, dur: 22, delay: 2 },
+  { bottom: '6%', left: '72%', size: 14, dur: 19, delay: 9 },
+  { bottom: '14%', left: '88%', size: 10, dur: 25, delay: 5 },
+  { bottom: '8%', left: '45%', size: 20, dur: 21, delay: 12 },
+];
+---
+
+<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+  {bubbles.map((b) => (
+    <span
+      class="bubble"
+      style={`bottom:${b.bottom};left:${b.left};width:${b.size}px;height:${b.size}px;animation-duration:${b.dur}s;animation-delay:${b.delay}s;`}
+    />
+  ))}
+</div>

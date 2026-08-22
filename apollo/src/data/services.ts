@@ -1,8 +1,8 @@
 // All five services offered by Apollo Professional.
 // Each entry powers a generated page at /services/<slug> and its
-// card in the services grid. Content mirrors the company's current
-// website (with outdated contact details normalized to the primary
-// number and the former co-owner removed).
+// card in the services grid.
+
+import { images } from './images';
 
 /** Topics supported by the PlaceholderImage component. */
 export type ImageTopic =
@@ -68,7 +68,7 @@ export const services: Service[] = [
     shortDescription:
       'Spotless, streak-free windows for residential and select commercial properties.',
     imageTopic: 'window',
-    image: '/images/window-cleaning.webp',
+    image: images.services['window-cleaning'],
     featured: true,
   },
   {
@@ -94,7 +94,7 @@ export const services: Service[] = [
     shortDescription:
       'Clear gutters, protected foundation — debris removed and drainage verified.',
     imageTopic: 'gutter',
-    image: '/images/gutter-cleaning.webp',
+    image: images.services['gutter-cleaning'],
     featured: true,
   },
   {
@@ -148,7 +148,7 @@ export const services: Service[] = [
     shortDescription:
       'Restore airflow and brightness with a detailed screen cleaning service.',
     imageTopic: 'screen',
-    image: '/images/screen-cleaning-repair.webp',
+    image: images.services['screen-cleaning'],
     featured: true,
   },
   {
@@ -201,7 +201,7 @@ export const services: Service[] = [
     shortDescription:
       'Repair torn or loose screens to keep bugs out and fresh air moving.',
     imageTopic: 'repair',
-    image: '/images/screen-tab.webp',
+    image: images.services['screen-repair'],
   },
   {
     slug: 'power-washing',
@@ -226,7 +226,7 @@ export const services: Service[] = [
     shortDescription:
       'Deep-clean driveways, patios, siding, and walkways with safe, effective pressure washing.',
     imageTopic: 'pressure',
-    image: '/images/power-washing.png',
+    image: images.services['power-washing'],
   },
 ];
 

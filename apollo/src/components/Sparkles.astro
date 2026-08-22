@@ -1,0 +1,41 @@
+---
+// A few sparse, slow-moving sparkle accents — like light glinting off
+// clean glass. Place a handful near the hero or key CTAs, never more.
+// `tone` picks the glow color: default teal works on light surfaces,
+// `white` for dark sections.
+
+interface SparkleItem {
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  /** Size in px (default 6). */
+  size?: number;
+  /** Animation delay in seconds. */
+  delay?: number;
+  tone?: 'teal' | 'white';
+}
+
+interface Props {
+  items?: SparkleItem[];
+  class?: string;
+}
+
+const defaults: SparkleItem[] = [
+  { top: '22%', right: '10%', size: 7, delay: 0 },
+  { top: '58%', left: '4%', size: 5, delay: 1.6 },
+  { top: '30%', left: '46%', size: 6, delay: 3 },
+  { top: '74%', right: '16%', size: 5, delay: 0.8 },
+];
+
+const { items = defaults, class: className = '' } = Astro.props;
+---
+
+<div class={`pointer-events-none absolute inset-0 ${className}`} aria-hidden="true">
+  {items.map((s) => (
+    <span
+      class={`sparkle ${s.tone === 'white' ? 'sparkle--white' : ''}`}
+      style={`${s.top ? `top:${s.top};` : ''}${s.bottom ? `bottom:${s.bottom};` : ''}${s.left ? ` left:${s.left};` : ''}${s.right ? ` right:${s.right};` : ''}width:${s.size ?? 6}px;height:${s.size ?? 6}px;animation-delay:${s.delay ?? 0}s;`}
+    />
+  ))}
+</div>

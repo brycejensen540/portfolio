@@ -4,47 +4,189 @@
 
 @layer base {
   html {
-    /* Smooth anchor scrolling; disabled automatically for reduced-motion users. */
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-slate-900 font-sans antialiased;
+    @apply bg-surface text-ink font-sans antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    @apply bg-brand-soft text-navy-deep;
+    @apply bg-accent/20 text-ink;
   }
 }
 
 @layer components {
-  /* Buttons — used across the site for the main conversions. */
+  /* Buttons — clean, slightly squared, muted teal. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-sans font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface;
   }
 
+  /* Primary buttons carry a subtle light sweep on hover — like light
+     catching freshly cleaned glass. Kept very low in opacity. */
   .btn-primary {
-    @apply btn bg-brand text-white hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-glow;
+    @apply btn bg-accent text-white hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-lift;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+    pointer-events: none;
+  }
+
+  .btn-primary:hover::after {
+    left: 160%;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink/15 text-ink hover:border-accent hover:bg-accent hover:text-white hover:-translate-y-0.5;
   }
 
   .btn-outline-light {
-    @apply btn border border-white/30 text-white hover:border-brand-bright hover:text-brand-bright hover:-translate-y-0.5;
+    @apply btn border border-white/25 text-white hover:border-white/50 hover:-translate-y-0.5;
   }
 
-  .btn-outline-dark {
-    @apply btn border border-navy/20 text-navy hover:border-brand hover:text-brand-deep hover:-translate-y-0.5;
+  .btn-ghost {
+    @apply btn text-accent hover:bg-accent-light hover:-translate-y-0.5;
   }
 
-  /* Card hover: subtle lift + a soft accent glow. */
+  /* Card hover — gentle lift with soft shadow. */
   .card-lift {
-    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-glow;
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lift;
+  }
+
+  /* Glass-morphism card — use sparingly for elevated surfaces. */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ---------- Window-cleaning effects (restrained) ---------- */
+
+  /* A. Soft sparkle / light-glint accents. */
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sparkle-color, rgba(160, 215, 235, 0.95)) 0%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkle-twinkle 4.5s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+
+  .sparkle--white {
+    --sparkle-color: rgba(255, 255, 255, 0.95);
+  }
+
+  /* B. Gentle shine / light sweep on interactive elements. */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.9s ease;
+    pointer-events: none;
+  }
+
+  .shine:hover::after {
+    left: 160%;
+  }
+
+  /* C. Tasteful floating bubble accents. */
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), rgba(160, 210, 235, 0.08));
+    border: 1px solid rgba(160, 210, 235, 0.22);
+    opacity: 0;
+    pointer-events: none;
+    animation: bubble-float 18s linear infinite;
+    will-change: transform, opacity;
+  }
+
+  /* D. Subtle drip / water-trail accents along page edges. */
+  .drip {
+    position: fixed;
+    top: -20px;
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(160, 210, 235, 0.28), transparent);
+    border-radius: 2px;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: drip-fall 9s ease-in infinite;
   }
 }
 
-/* Scroll-reveal. Elements start slightly lower and fade in once they
-   enter the viewport. Gate everything behind `.js` (added by a tiny
-   inline script) and respect prefers-reduced-motion. */
+/* Effect keyframes */
+@keyframes sparkle-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.35;
+  }
+  85% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: translateY(-82vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes drip-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.45;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(105vh);
+    opacity: 0;
+  }
+}
+
+/* Scroll-reveal */
 html.js .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -67,5 +209,18 @@ html.js .reveal.is-visible {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  /* Effects off for reduced-motion users. */
+  .sparkle,
+  .bubble,
+  .drip {
+    animation: none;
+    opacity: 0;
+  }
+
+  .shine::after,
+  .btn-primary::after {
+    display: none;
   }
 }

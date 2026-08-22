@@ -9,27 +9,22 @@ const { review } = Astro.props;
 const stars = Array.from({ length: 5 });
 ---
 
-<figure class="card-lift flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
-  <div class="mb-3 flex text-brand" aria-label="Rated 5 out of 5 stars">
+<figure class="shine flex h-full flex-col overflow-hidden rounded-2xl bg-white p-8 shadow-soft ring-1 ring-ink/5">
+  <div class="mb-4 flex text-accent" aria-label="Rated 5 out of 5 stars">
     {stars.map(() => (
       <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
         <path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" />
       </svg>
     ))}
   </div>
-  <blockquote class="flex-1 text-sm leading-relaxed text-slate-600">
+  <blockquote class="flex-1 font-display text-[15px] leading-relaxed text-ink">
     “{review.text}”
   </blockquote>
-  <figcaption class="mt-4 flex items-center gap-2 border-t border-slate-100 pt-4">
-    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-navy font-display text-sm font-bold text-white">
+  <figcaption class="mt-6 flex items-center gap-3 border-t border-ink/8 pt-5">
+    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white">
       {review.name.charAt(0)}
     </span>
-    <span class="text-sm font-semibold text-navy">{review.name}</span>
-    <span class="ml-auto flex items-center gap-1 text-xs text-slate-400">
-      <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path d="M10 1.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9l-5.3 2.7 1-5.8L1.5 7.7l5.9-.9L10 1.5z" />
-      </svg>
-      Google Review
-    </span>
+    <span class="text-sm font-semibold text-ink">{review.name}</span>
+    <span class="ml-auto text-xs text-ink-faint">Google Review</span>
   </figcaption>
 </figure>
